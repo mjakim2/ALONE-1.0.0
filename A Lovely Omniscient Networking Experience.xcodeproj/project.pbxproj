@@ -14,6 +14,27 @@
 		0D0A9CCD21D3116D00F1DD45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A9CCB21D3116D00F1DD45 /* LaunchScreen.storyboard */; };
 		0D0A9CD821D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CD721D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceTests.swift */; };
 		0D0A9CE321D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CE221D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceUITests.swift */; };
+		0D0A9CF121D3152200F1DD45 /* GenerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CF021D3152200F1DD45 /* GenerationViewController.swift */; };
+		0D0A9CF321D3154D00F1DD45 /* WorldClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CF221D3154D00F1DD45 /* WorldClass.swift */; };
+		0D1F2F6321F3A7CE00F4D4C6 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F2F6221F3A7CE00F4D4C6 /* BattleViewController.swift */; };
+		0D1F2F6521F3AA3D00F4D4C6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F2F6421F3AA3D00F4D4C6 /* IntroViewController.swift */; };
+		0D1F2F6721F3AA4B00F4D4C6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F2F6621F3AA4B00F4D4C6 /* StartViewController.swift */; };
+		0D1F2F6921F3ACFF00F4D4C6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F2F6821F3ACFF00F4D4C6 /* MenuViewController.swift */; };
+		0D1F2F6D21F51FFC00F4D4C6 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F2F6C21F51FFC00F4D4C6 /* InventoryViewController.swift */; };
+		0D21F76621F8B3CB00E6DD4B /* Debuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21F76521F8B3CB00E6DD4B /* Debuff.swift */; };
+		0D21F76821F8BAF700E6DD4B /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21F76721F8BAF700E6DD4B /* Quest.swift */; };
+		0D4AE17621DE79460062612E /* EntityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AE17521DE79460062612E /* EntityClass.swift */; };
+		0D4AE17821DF0EC60062612E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AE17721DF0EC60062612E /* Item.swift */; };
+		0DB6372722C535DB0017DA08 /* Mineral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6372622C535DB0017DA08 /* Mineral.swift */; };
+		0DB6372D22D612C90017DA08 /* Pocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6372C22D612C90017DA08 /* Pocket.swift */; };
+		0DB6372F22D776B60017DA08 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6372E22D776B60017DA08 /* Skill.swift */; };
+		0DB6373122DE50050017DA08 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6373022DE50050017DA08 /* Equipment.swift */; };
+		0DB6373322DE50200017DA08 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6373222DE50200017DA08 /* BodyPart.swift */; };
+		0DC1C18F23202CDB00BC5934 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1C18E23202CDB00BC5934 /* ShopViewController.swift */; };
+		0DC1C191232032D200BC5934 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1C190232032D200BC5934 /* Shop.swift */; };
+		0DC60A6B22F25B0D008E9156 /* Biohazard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC60A6A22F25B0D008E9156 /* Biohazard.swift */; };
+		0DE0ED7E226FB94300166A2D /* VictoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0ED7D226FB94300166A2D /* VictoryViewController.swift */; };
+		0DEDA8552280EC7D00ACA925 /* CraftingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDA8542280EC7D00ACA925 /* CraftingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +68,27 @@
 		0D0A9CDE21D3116D00F1DD45 /* A Lovely Onmiscient Networking ExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Lovely Onmiscient Networking ExperienceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0A9CE221D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Lovely_Onmiscient_Networking_ExperienceUITests.swift; sourceTree = "<group>"; };
 		0D0A9CE421D3116D00F1DD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D0A9CF021D3152200F1DD45 /* GenerationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationViewController.swift; sourceTree = "<group>"; };
+		0D0A9CF221D3154D00F1DD45 /* WorldClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClass.swift; sourceTree = "<group>"; };
+		0D1F2F6221F3A7CE00F4D4C6 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		0D1F2F6421F3AA3D00F4D4C6 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		0D1F2F6621F3AA4B00F4D4C6 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		0D1F2F6821F3ACFF00F4D4C6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		0D1F2F6C21F51FFC00F4D4C6 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		0D21F76521F8B3CB00E6DD4B /* Debuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debuff.swift; sourceTree = "<group>"; };
+		0D21F76721F8BAF700E6DD4B /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
+		0D4AE17521DE79460062612E /* EntityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityClass.swift; sourceTree = "<group>"; };
+		0D4AE17721DF0EC60062612E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0DB6372622C535DB0017DA08 /* Mineral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mineral.swift; sourceTree = "<group>"; };
+		0DB6372C22D612C90017DA08 /* Pocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket.swift; sourceTree = "<group>"; };
+		0DB6372E22D776B60017DA08 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		0DB6373022DE50050017DA08 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		0DB6373222DE50200017DA08 /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		0DC1C18E23202CDB00BC5934 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		0DC1C190232032D200BC5934 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		0DC60A6A22F25B0D008E9156 /* Biohazard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biohazard.swift; sourceTree = "<group>"; };
+		0DE0ED7D226FB94300166A2D /* VictoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryViewController.swift; sourceTree = "<group>"; };
+		0DEDA8542280EC7D00ACA925 /* CraftingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CraftingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +119,9 @@
 		0D0A9CB621D3116C00F1DD45 = {
 			isa = PBXGroup;
 			children = (
-				0D0A9CC121D3116C00F1DD45 /* A Lovely Onmiscient Networking Experience */,
-				0D0A9CD621D3116D00F1DD45 /* A Lovely Onmiscient Networking ExperienceTests */,
-				0D0A9CE121D3116D00F1DD45 /* A Lovely Onmiscient Networking ExperienceUITests */,
+				0D0A9CC121D3116C00F1DD45 /* A Lovely Omniscient Networking Experience */,
+				0D0A9CD621D3116D00F1DD45 /* A Lovely Omniscient Networking ExperienceTests */,
+				0D0A9CE121D3116D00F1DD45 /* A Lovely Omniscient Networking ExperienceUITests */,
 				0D0A9CC021D3116C00F1DD45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,35 +136,56 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0D0A9CC121D3116C00F1DD45 /* A Lovely Onmiscient Networking Experience */ = {
+		0D0A9CC121D3116C00F1DD45 /* A Lovely Omniscient Networking Experience */ = {
 			isa = PBXGroup;
 			children = (
 				0D0A9CC221D3116C00F1DD45 /* AppDelegate.swift */,
 				0D0A9CC421D3116C00F1DD45 /* ViewController.swift */,
 				0D0A9CC621D3116D00F1DD45 /* Main.storyboard */,
+				0DC1C18E23202CDB00BC5934 /* ShopViewController.swift */,
+				0DEDA8542280EC7D00ACA925 /* CraftingViewController.swift */,
+				0DE0ED7D226FB94300166A2D /* VictoryViewController.swift */,
+				0D21F76521F8B3CB00E6DD4B /* Debuff.swift */,
+				0DC60A6A22F25B0D008E9156 /* Biohazard.swift */,
+				0D1F2F6C21F51FFC00F4D4C6 /* InventoryViewController.swift */,
+				0D1F2F6421F3AA3D00F4D4C6 /* IntroViewController.swift */,
+				0D21F76721F8BAF700E6DD4B /* Quest.swift */,
+				0D1F2F6621F3AA4B00F4D4C6 /* StartViewController.swift */,
+				0D1F2F6221F3A7CE00F4D4C6 /* BattleViewController.swift */,
+				0D4AE17521DE79460062612E /* EntityClass.swift */,
+				0DB6372622C535DB0017DA08 /* Mineral.swift */,
+				0DB6372E22D776B60017DA08 /* Skill.swift */,
+				0DB6373022DE50050017DA08 /* Equipment.swift */,
+				0DB6373222DE50200017DA08 /* BodyPart.swift */,
+				0D4AE17721DF0EC60062612E /* Item.swift */,
+				0DB6372C22D612C90017DA08 /* Pocket.swift */,
+				0D0A9CF221D3154D00F1DD45 /* WorldClass.swift */,
+				0DC1C190232032D200BC5934 /* Shop.swift */,
+				0D1F2F6821F3ACFF00F4D4C6 /* MenuViewController.swift */,
+				0D0A9CF021D3152200F1DD45 /* GenerationViewController.swift */,
 				0D0A9CC921D3116D00F1DD45 /* Assets.xcassets */,
 				0D0A9CCB21D3116D00F1DD45 /* LaunchScreen.storyboard */,
 				0D0A9CCE21D3116D00F1DD45 /* Info.plist */,
 			);
-			path = "A Lovely Onmiscient Networking Experience";
+			path = "A Lovely Omniscient Networking Experience";
 			sourceTree = "<group>";
 		};
-		0D0A9CD621D3116D00F1DD45 /* A Lovely Onmiscient Networking ExperienceTests */ = {
+		0D0A9CD621D3116D00F1DD45 /* A Lovely Omniscient Networking ExperienceTests */ = {
 			isa = PBXGroup;
 			children = (
 				0D0A9CD721D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceTests.swift */,
 				0D0A9CD921D3116D00F1DD45 /* Info.plist */,
 			);
-			path = "A Lovely Onmiscient Networking ExperienceTests";
+			path = "A Lovely Omniscient Networking ExperienceTests";
 			sourceTree = "<group>";
 		};
-		0D0A9CE121D3116D00F1DD45 /* A Lovely Onmiscient Networking ExperienceUITests */ = {
+		0D0A9CE121D3116D00F1DD45 /* A Lovely Omniscient Networking ExperienceUITests */ = {
 			isa = PBXGroup;
 			children = (
 				0D0A9CE221D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceUITests.swift */,
 				0D0A9CE421D3116D00F1DD45 /* Info.plist */,
 			);
-			path = "A Lovely Onmiscient Networking ExperienceUITests";
+			path = "A Lovely Omniscient Networking ExperienceUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +270,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0D0A9CBA21D3116C00F1DD45 /* Build configuration list for PBXProject "A Lovely Onmiscient Networking Experience" */;
+			buildConfigurationList = 0D0A9CBA21D3116C00F1DD45 /* Build configuration list for PBXProject "A Lovely Omniscient Networking Experience" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -259,8 +322,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB6372722C535DB0017DA08 /* Mineral.swift in Sources */,
+				0D1F2F6321F3A7CE00F4D4C6 /* BattleViewController.swift in Sources */,
+				0DC1C18F23202CDB00BC5934 /* ShopViewController.swift in Sources */,
+				0D1F2F6921F3ACFF00F4D4C6 /* MenuViewController.swift in Sources */,
+				0D21F76821F8BAF700E6DD4B /* Quest.swift in Sources */,
 				0D0A9CC521D3116C00F1DD45 /* ViewController.swift in Sources */,
+				0D0A9CF321D3154D00F1DD45 /* WorldClass.swift in Sources */,
 				0D0A9CC321D3116C00F1DD45 /* AppDelegate.swift in Sources */,
+				0D4AE17621DE79460062612E /* EntityClass.swift in Sources */,
+				0D1F2F6721F3AA4B00F4D4C6 /* StartViewController.swift in Sources */,
+				0D4AE17821DF0EC60062612E /* Item.swift in Sources */,
+				0DE0ED7E226FB94300166A2D /* VictoryViewController.swift in Sources */,
+				0DEDA8552280EC7D00ACA925 /* CraftingViewController.swift in Sources */,
+				0D1F2F6D21F51FFC00F4D4C6 /* InventoryViewController.swift in Sources */,
+				0DB6373122DE50050017DA08 /* Equipment.swift in Sources */,
+				0D0A9CF121D3152200F1DD45 /* GenerationViewController.swift in Sources */,
+				0DB6373322DE50200017DA08 /* BodyPart.swift in Sources */,
+				0DB6372D22D612C90017DA08 /* Pocket.swift in Sources */,
+				0DC60A6B22F25B0D008E9156 /* Biohazard.swift in Sources */,
+				0DB6372F22D776B60017DA08 /* Skill.swift in Sources */,
+				0D1F2F6521F3AA3D00F4D4C6 /* IntroViewController.swift in Sources */,
+				0DC1C191232032D200BC5934 /* Shop.swift in Sources */,
+				0D21F76621F8B3CB00E6DD4B /* Debuff.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +511,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N23436B3HE;
-				INFOPLIST_FILE = "A Lovely Onmiscient Networking Experience/Info.plist";
+				DEVELOPMENT_TEAM = BD5MP26W75;
+				INFOPLIST_FILE = "$(SRCROOT)/A Lovely Omniscient Networking Experience/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "MandM.A-Lovely-Onmiscient-Networking-Experience";
+				PRODUCT_BUNDLE_IDENTIFIER = "NbA.A-Lovely-Omniscient-Networking-Experience";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -442,10 +526,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N23436B3HE;
-				INFOPLIST_FILE = "A Lovely Onmiscient Networking Experience/Info.plist";
+				DEVELOPMENT_TEAM = BD5MP26W75;
+				INFOPLIST_FILE = "$(SRCROOT)/A Lovely Omniscient Networking Experience/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "MandM.A-Lovely-Onmiscient-Networking-Experience";
+				PRODUCT_BUNDLE_IDENTIFIER = "NbA.A-Lovely-Omniscient-Networking-Experience";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -521,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0D0A9CBA21D3116C00F1DD45 /* Build configuration list for PBXProject "A Lovely Onmiscient Networking Experience" */ = {
+		0D0A9CBA21D3116C00F1DD45 /* Build configuration list for PBXProject "A Lovely Omniscient Networking Experience" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D0A9CE521D3116D00F1DD45 /* Debug */,
