@@ -23,6 +23,14 @@ class Pocket {
         return sum
     }
     
+    func checkSize () -> Int {
+        var sum = 0
+        for item in items {
+            sum += item.size
+        }
+        return sum
+    }
+    
     init (ms: Int, mx: Int) {
         maxSize = ms
         maxWeight = mx
