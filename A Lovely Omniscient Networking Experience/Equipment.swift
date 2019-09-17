@@ -15,4 +15,13 @@ class Equipment: Item {
         super.setStats()
     }
     
+    func isEmpty() -> Bool {
+        for pocket in pockets {
+            if (pocket.items.count > 0) {
+                return false
+            }
+        }
+        return true
+    }
+    
 }

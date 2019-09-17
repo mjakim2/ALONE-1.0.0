@@ -33,6 +33,8 @@ class VictoryViewController: UIViewController {
     var pocketIndex: Int = -1;
     var contentIndex: Int = -1;
     
+    var spoilIndex = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Clearing the names of the spoils and inventory buttons, as well as the response bars.
@@ -42,8 +44,8 @@ class VictoryViewController: UIViewController {
         inventoryResponse.text = ""
         //Setting the spoils image for the first time.
         if (worlds[worldNumber].quests[questNumber].spoils.count > 0) {
-            currentSpoil.setBackgroundImage(UIImage(named: worlds[worldNumber].quests[questNumber].spoils[0].name), for: .normal)
-            spoilsResponse.text = worlds[worldNumber].quests[questNumber].spoils[0].name
+            spoilIndex = 0
+            setSpoil()
         }
         
         var bodyCount: Int = 0
@@ -80,14 +82,19 @@ class VictoryViewController: UIViewController {
         
         //Now that we have a bodyIndex, pocketIndex, and contentIndex (the third one should be zero), we can display its image.
         if (contentIndex != -1) {
-            currentSpoil.setBackgroundImage(UIImage(named: worlds[worldNumber].character.bodyParts[bodyIndex].equipped.pockets[pocketIndex].items[contentIndex].name), for: .normal)
-            spoilsResponse.text = worlds[worldNumber].character.bodyParts[bodyIndex].equipped.pockets[pocketIndex].items[contentIndex].name
+            currentInventory.setBackgroundImage(UIImage(named: worlds[worldNumber].character.bodyParts[bodyIndex].equipped.pockets[pocketIndex].items[contentIndex].name), for: .normal)
+            inventoryResponse.text = worlds[worldNumber].character.bodyParts[bodyIndex].equipped.pockets[pocketIndex].items[contentIndex].name
         }
         
     }
     
     @IBAction func previousSpoilAction(_ sender: UIButton) {
-        
+        if (spoilIndex > 0) {
+            spoilIndex -= 1
+        } else {
+            spoilIndex = worlds[worldNumber].quests[questNumber].spoils.count - 1
+        }
+        setSpoil()
     }
     
     @IBAction func currentSpoilAction(_ sender: UIButton) {
@@ -95,13 +102,29 @@ class VictoryViewController: UIViewController {
     }
     
     @IBAction func nextSpoilAction(_ sender: UIButton) {
-        
+        if (spoilIndex < worlds[worldNumber].quests[questNumber].spoils.count - 1) {
+            spoilIndex += 1
+        } else {
+            spoilIndex = 0
+        }
+        setSpoil()
     }
     
     @IBAction func storeSpoilAction(_ sender: UIButton) {
+        if (worlds[worldNumber].character.addItem(item: worlds[worldNumber].quests[questNumber].spoils[spoilIndex])){
+            worlds[worldNumber].quests[questNumber].spoils.remove(at: spoilIndex)
+            spoilIndex -= 1
+        }
+        setSpoil()
     }
     
     @IBAction func equipSpoilAction(_ sender: UIButton) {
+        let equip = Equipment(n: worlds[worldNumber].quests[questNumber].spoils[spoilIndex].name, s: worlds[worldNumber].quests[questNumber].spoils[spoilIndex].slot)
+        let oldEquip = worlds[worldNumber].character.putOnEquipment(slot: equip.slot, equip: equip)
+        if (oldEquip.name != "N/a") {
+            worlds[worldNumber].quests[questNumber].spoils[spoilIndex] = oldEquip
+        }
+        setSpoil()
     }
     
     @IBAction func previousInventoryAction(_ sender: UIButton) {
@@ -117,6 +140,17 @@ class VictoryViewController: UIViewController {
     }
     
     @IBAction func equipInventoryAction(_ sender: UIButton) {
+    }
+    
+    //A simple function that sets the image and text.
+    func setSpoil() {
+        if (spoilIndex > -1 && spoilIndex < worlds[worldNumber].quests[questNumber].spoils.count) {
+            currentSpoil.setBackgroundImage(UIImage(named: worlds[worldNumber].quests[questNumber].spoils[spoilIndex].name), for: .normal)
+            spoilsResponse.text = worlds[worldNumber].quests[questNumber].spoils[spoilIndex].name
+        } else {
+            currentSpoil.setBackgroundImage(nil, for: .normal)
+            spoilsResponse.text = ""
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

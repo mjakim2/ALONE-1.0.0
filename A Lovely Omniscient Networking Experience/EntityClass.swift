@@ -84,7 +84,7 @@ class EntityClass {
         var returnEquip: Equipment = Equipment(n: "N/a", s: "N/a")
         for bodypart in bodyParts {
             //If the slot of the item matches the body part, switch equipment.
-            if (bodypart.name == slot) {
+            if (bodypart.name == slot && bodypart.equipped.isEmpty()) {
                 //If the item on the bodypart is not null, save it and return it later.
                 if (bodypart.equipped.name != "N/a") {
                     returnEquip = bodypart.equipped
@@ -272,7 +272,7 @@ class EntityClass {
     }
     
     //Adds an item to the player's inventory, if possible.
-    func addItem(item: Item) {
+    func addItem(item: Item) -> Bool {
         var didFindPocket = false
         for part in bodyParts {
             for pocket in part.equipped.pockets {
@@ -287,6 +287,7 @@ class EntityClass {
                 break
             }
         }
+        return didFindPocket
     }
     
     //Losing 60% of one's blood leads to exsanguation: this threshold is represented by the max HP. For example, humans have five liters of blood, but losing three leads to death.
