@@ -195,6 +195,26 @@ class Item {
      
     }
     
+    func use() {
+        
+        if (name == "Shoddy Slice of Parmesan Cheese") {
+            
+        } else if (name == "Shoddy Slice of Cheddar Cheese") {
+            
+        } else if (name == "Shoddy Slice of Bleu Cheese") {
+            
+        } else if (name == "Shoddy Slice of Parmesan Cheese") {
+            
+        } else if (name == "Shoddy Slice of Goat Cheese") {
+            
+        } else if (name == "Shoddy Slice of Feta Cheese") {
+            
+        } else if (name == "Shoddy Slice of Brie Cheese") {
+            
+        }
+        
+    }
+    
     func setStats(){
 
         if (name == "Shoddy Copper Pugio"){

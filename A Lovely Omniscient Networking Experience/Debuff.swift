@@ -41,19 +41,80 @@ class Debuff {
     //These are DOTs and other effects that are applied every in-game minute.
     //This requires that the character be passed through, even when applied in the entity class.
     func activeEffects (entity: EntityClass) {
-        entity.HP -= decrementHP
-        entity.EP -= decrementEP
-        entity.MP -= decrementMP
+        if (name == "Minor Starvation") {
+            if (Int(arc4random_uniform(4)) < 1) {
+                entity.EP -= 1
+            }
+        } else if (name == "Minor Dehydration") {
+            if (Int(arc4random_uniform(4)) < 1) {
+                entity.MP -= 1
+            }
+        } else if (name == "Regular Starvation") {
+            if (Int(arc4random_uniform(4)) < 2) {
+                entity.EP -= 1
+            }
+        } else if (name == "Regular Dehydration") {
+            if (Int(arc4random_uniform(4)) < 2) {
+                entity.MP -= 1
+            }
+        } else if (name == "Regular Starvation") {
+            if (Int(arc4random_uniform(4)) < 2) {
+                entity.EP -= 1
+            }
+        } else if (name == "Regular Dehydration") {
+            if (Int(arc4random_uniform(4)) < 2) {
+                entity.MP -= 1
+            }
+        } else if (name == "Major Starvation") {
+            if (Int(arc4random_uniform(4)) < 3) {
+                entity.EP -= 1
+            }
+        } else if (name == "Major Dehydration") {
+            if (Int(arc4random_uniform(4)) < 3) {
+                entity.MP -= 1
+            }
+        } else if (name == "Grand Starvation") {
+            entity.EP -= 1
+        } else if (name == "Grand Dehydration") {
+            entity.MP -= 1
+        } else if (name == "Minor Bleeding") {
+            entity.HP -= 1
+        } else if (name == "Regular Bleeding") {
+            entity.HP -= 3
+        } else if (name == "Major Bleeding") {
+            entity.HP -= 6
+        } else if (name == "Grand Bleeding") {
+            entity.HP -= 10
+        }
     }
     
     //These are stat debuffs that don't change until the debuff is removed.
     func setStats(){
-        //DOT-Based Debuffs.
         if (name == "Minor Bleeding") {
-            decrementHP = 1
+            bleedResist = -1
+        } else if (name == "Regular Bleeding") {
+            bleedResist = -3
+        } else if (name == "Major Bleeding") {
+            bleedResist = -6
+        } else if (name == "Grand Bleeding") {
+            bleedResist = -10
+        } else if (name == "Minor Starvation") {
+            physicalResist = -1
+        } else if (name == "Regular Starvation") {
+            physicalResist = -3
+        } else if (name == "Major Starvation") {
+            physicalResist = -6
+        } else if (name == "Grand Starvation") {
+            physicalResist = -10
+        } else if (name == "Minor Dehydration") {
+            mentalResist = -1
+        } else if (name == "Regular Dehydration") {
+            mentalResist = -3
+        } else if (name == "Major Dehydration") {
+            mentalResist = -6
+        } else if (name == "Grand Dehydration") {
+            mentalResist = -10
         }
-        //Miscellaneous Debuffs.
     }
-    
     
 }

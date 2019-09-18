@@ -69,6 +69,8 @@ class EntityClass {
     var vitamins: Array<Mineral> = []
     var bodyWeight = 70000 //g
     var fat = 13000 //g
+    var saturation = 2880 //calories/day
+    var hydration = 4320 // mL/day
     
     init (n: String) {
         
@@ -79,7 +81,7 @@ class EntityClass {
     }
     
     //Equips a desired piece of Equipment onto the person
-    func putOnEquipment (slot: String, equip: Equipment) -> Equipment {
+    func putOnEquipment(slot: String, equip: Equipment) -> Equipment {
         //A blank item.
         var returnEquip: Equipment = Equipment(n: "N/a", s: "N/a")
         for bodypart in bodyParts {
@@ -96,7 +98,7 @@ class EntityClass {
     }
     
     //Checks for too much weight on the body.
-    func checkExcessWeight () {
+    func checkExcessWeight() {
         
         /*Excess weight debuffs:
         *Once more than 25% of the total weight is not bodyWeight, start applying debuffs.
@@ -149,6 +151,7 @@ class EntityClass {
         while (count < debuffs.count) {
             if(debuffs[count].name == name){
                 debuffs.remove(at: count)
+                break
             }
             count += 1
         }
@@ -168,9 +171,9 @@ class EntityClass {
         return -1
     }
     
-    //Sets the vitamins for the human body - NOT to be used on enemy characters.
+    //Sets the vitamins for the human body - NOT to be used on non-humanoid enemy characters.
     //See the Mineral class for more information on each one.
-    func setVitamins () {
+    func setVitamins() {
         
         let vitaminA = Mineral(n: "Vitamin A")
         vitamins.append(vitaminA)
@@ -236,8 +239,18 @@ class EntityClass {
     }
     
     //When time passes, use this to set digestion, debuffs, etc. accordingly.
-    func timePassed (amount: Int) {
+    func timePassed(amount: Int) {
         //Amount is in IRL seconds or in-game minutes.
+        if (saturation < 1) {
+            saturation = 0
+            if (locateDebuff(name: "Starvation") == -1) {
+                let debuff = Debuff(n: "Starvation", d: -1)
+                debuffs.append(debuff)
+            }
+        } else {
+            removeDebuff(name: "Starvation")
+            saturation -= 2
+        }
         var count = 0
         //Allows every debuff to be cycled through.
         while (count < debuffs.count) {
@@ -293,12 +306,12 @@ class EntityClass {
     //Losing 60% of one's blood leads to exsanguation: this threshold is represented by the max HP. For example, humans have five liters of blood, but losing three leads to death.
     func createEnemy (name: String) {
         
-        if (name == "Matthew Jakimovski"){
+        if (name == "Matthew Jakimovski") {
             
             //Statistics
             maxHP = 5000 * 3 / 5
-            maxEP = 2500
-            maxMP = 3500
+            maxEP = 2880
+            maxMP = 4320
             HP = maxHP
             EP = maxEP
             MP = maxMP
@@ -362,7 +375,7 @@ class EntityClass {
             interactionType = "Examination"
             interactionName = "Matthew Jakimovski"
             
-        } else if (name == "Brown Rat"){
+        } else if (name == "Brown Rat") {
             //Statistics
             maxHP = 64 * 3 / 5
             maxEP = 50
@@ -387,7 +400,7 @@ class EntityClass {
             claws.setStats()
             putOnEquipment(slot: claws.slot, equip: claws)
             
-        } else if (name == "Brown Doe"){
+        } else if (name == "Brown Doe") {
             //Statistics
             maxHP = 4730 * 3 / 5
             maxEP = 2365
@@ -399,7 +412,7 @@ class EntityClass {
             actions.append("Stand")
             actions.append("Run Rightward")
             
-        } else if (name == "Grey Doe"){
+        } else if (name == "Grey Doe") {
             //Statistics
             maxHP = 4730 * 3 / 5
             maxEP = 2365
@@ -411,7 +424,7 @@ class EntityClass {
             actions.append("Stand")
             actions.append("Run Rightward")
             
-        } else if (name == "Cream Doe"){
+        } else if (name == "Cream Doe") {
             //Statistics
             maxHP = 4730 * 3 / 5
             maxEP = 2365
@@ -423,7 +436,7 @@ class EntityClass {
             actions.append("Stand")
             actions.append("Run Rightward")
             
-        } else if (name == "White Doe"){
+        } else if (name == "White Doe") {
             //Statistics
             maxHP = 4730 * 3 / 5
             maxEP = 2365
