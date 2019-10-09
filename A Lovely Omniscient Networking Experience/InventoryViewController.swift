@@ -10,19 +10,18 @@ import UIKit
 
 class InventoryViewController: UIViewController {
 
-    
-    @IBOutlet var leftFootImage: UIImageView!
-    @IBOutlet var rightFootImage: UIImageView!
-    @IBOutlet var legsImage: UIImageView!
-    @IBOutlet var torsoImage: UIImageView!
-    @IBOutlet var leftHandImage: UIImageView!
-    @IBOutlet var rightHandImage: UIImageView!
-    @IBOutlet var headImage: UIImageView!
-    @IBOutlet var primaryImage: UIImageView!
-    @IBOutlet var secondaryImage: UIImageView!
     @IBOutlet var currentItemButton: UIButton!
     @IBOutlet var responseBar: UILabel!
-    
+    //Equipment Views:
+    @IBOutlet var headView: UIImageView!
+    @IBOutlet var secondaryView: UIImageView!
+    @IBOutlet var primaryView: UIImageView!
+    @IBOutlet var chestView: UIImageView!
+    @IBOutlet var rightHandView: UIImageView!
+    @IBOutlet var leftHandView: UIImageView!
+    @IBOutlet var legsView: UIImageView!
+    @IBOutlet var rightFootView: UIImageView!
+    @IBOutlet var leftFootView: UIImageView!
     //Fluids:
     @IBOutlet var bloodFluid: UIView!
     @IBOutlet var energyFluid: UIView!
@@ -76,6 +75,8 @@ class InventoryViewController: UIViewController {
         currentItemButton.setBackgroundImage(UIImage(named: worlds[worldNumber].character.bodyParts[bodyIndex].equipped.pockets[pocketIndex].items[contentIndex].name)!, for: .normal)
             print("Set up the image!")
         }
+        //And finally, we set the imagery of the equipment.
+        setImagery()
     }
     //Sifts to the next item in all of your pockets. Will also switch out of pockets.
     @IBAction func previousItemAction(_ sender: UIButton) {
@@ -177,8 +178,34 @@ class InventoryViewController: UIViewController {
     }
     
     //Gives the current item we're looking at in the inventory screen.
-    func currentItem () {
+    func currentItem() {
         
+    }
+    
+    //Sets the character's image.
+    func setImagery() {
+        for bodyPart in worlds[worldNumber].character.bodyParts {
+            if (bodyPart.equipped.slot == "Left Foot") {
+                leftFootView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Right Foot") {
+                rightFootView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Legs") {
+                legsView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Chest") {
+                chestView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Head") {
+                headView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Left Hand") {
+                leftHandView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Right Hand") {
+                rightHandView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Primary") {
+                primaryView.image = UIImage(named: bodyPart.equipped.name)
+            } else if (bodyPart.equipped.slot == "Secondary") {
+                secondaryView.image = UIImage(named: bodyPart.equipped.name)
+            }
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -10,6 +10,11 @@ import Foundation
 
 class Equipment: Item {
     
+    override init (i: String, q: String, s: String) {
+        super.init(i: i, q: q, s: s)
+        super.setStats()
+    }
+    
     override init (n: String, s: String) {
         super.init(n: n, s: s)
         super.setStats()

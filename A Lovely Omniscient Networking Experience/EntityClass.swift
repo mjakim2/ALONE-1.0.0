@@ -352,7 +352,7 @@ class EntityClass {
             let leftGlove = Equipment(n: "Shoddy Leather Glove",s: "Left Hand")
             leftGlove.setStats()
             putOnEquipment(slot: leftGlove.slot, equip: leftGlove)
-            let clothJerkin = Equipment(n: "Shoddy Cloth Jerkin",s: "Torso")
+            let clothJerkin = Equipment(n: "Shoddy Cloth Jerkin",s: "Chest")
             clothJerkin.setStats()
             putOnEquipment(slot: clothJerkin.slot, equip: clothJerkin)
             let hammerShorts = Equipment(n: "Shoddy Cloth Hammer Shorts",s: "Legs")
@@ -361,7 +361,7 @@ class EntityClass {
             let leftSock = Equipment(n: "Shoddy Left Cloth Sock",s: "Left Foot")
             leftSock.setStats()
             putOnEquipment(slot: leftSock.slot, equip: leftSock)
-            let rightSock = Equipment(n: "Shoddy Right Cloth Sock",s: "Right Foot")
+            let rightSock = Equipment(n: "Shoddy Right Cloth Shoe",s: "Right Foot")
             rightSock.setStats()
             putOnEquipment(slot: rightSock.slot, equip: rightSock)
             //Adding on all of the vitamins a human needs.

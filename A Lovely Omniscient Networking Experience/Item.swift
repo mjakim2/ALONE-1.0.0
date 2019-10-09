@@ -113,6 +113,8 @@ class Item {
     var critHP: Int = 0
     var critEP: Int = 0
     var critMP: Int = 0
+    var saturation: Int = 0
+    var hydration: Int = 0
     
     //Resistance statistics.
     var bleedResist: Int = 0
@@ -124,7 +126,11 @@ class Item {
     var stunResist: Int = 0
     
     //Biographical data.
+    var adjectiveName: String
+    var fullName: String
+    var itemName: String
     var name: String
+    var qualityName: String
     var slot: String
     var value: Int = 0
     var count: Int = 1
@@ -204,18 +210,50 @@ class Item {
         } else if (name == "Shoddy Slice of Bleu Cheese") {
             
         } else if (name == "Shoddy Slice of Parmesan Cheese") {
-            
+            saturation = 431;
         } else if (name == "Shoddy Slice of Goat Cheese") {
             
         } else if (name == "Shoddy Slice of Feta Cheese") {
             
         } else if (name == "Shoddy Slice of Brie Cheese") {
             
+        } else if (name == "Shoddy White Egg") {
+            saturation = 64;
+        } else if (name == "Shoddy Brown Egg") {
+            saturation = 64;
+        } else if (name == "Standard White Egg") {
+            saturation = 72;
+        } else if (name == "Standard Brown Egg") {
+            saturation = 72;
+        } else if (name == "Surplus White Egg") {
+            saturation = 80;
+        } else if (name == "Surplus Brown Egg") {
+            saturation = 80;
+        } else if (name == "Specialty White Egg") {
+            saturation = 88;
+        } else if (name == "Specialty Brown Egg") {
+            saturation = 88;
+        } else if (name == "Shoddy Boiled Egg") {
+            saturation = 70;
+        } else if (name == "Patchwork Boiled Egg") {
+            saturation = 67;
+        } else if (name == "Standard Boiled Egg") {
+            saturation = 80;
+        } else if (name == "Proper Boiled Egg") {
+            saturation = 76;
+        } else if (name == "Surplus Boiled Egg") {
+            saturation = 90;
+        } else if (name == "Premium Boiled Egg") {
+            saturation = 85;
+        } else if (name == "Specialty Boiled Egg") {
+            saturation = 100;
+        } else if (name == "Prized Boiled Egg") {
+            saturation = 95;
         }
         
     }
     
-    func setStats(){
+    func setStats() {
 
         if (name == "Shoddy Copper Pugio"){
             
@@ -897,11 +935,35 @@ class Item {
         
     }
     
-    init(n: String, s: String){
+    init(i: String, q: String, s: String){
         
+        itemName = i
+        qualityName = q
+        name = q + " " + i
+        slot = s
+        adjectiveName = ""
+        fullName = adjectiveName + " " + name
+        
+    }
+    
+    init(i: String, q: String, s: String, a: String){
+        
+        itemName = i
+        qualityName = q
+        name = q + " " + i
+        slot = s
+        adjectiveName = a
+        fullName = adjectiveName + " " + name
+        
+    }
+    
+    init(n: String, s: String) {
+        itemName = ""
+        qualityName = ""
         name = n
         slot = s
-        
+        adjectiveName = ""
+        fullName = n
     }
     
 }
