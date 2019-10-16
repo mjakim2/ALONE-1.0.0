@@ -134,6 +134,7 @@ class Item {
     var value: Int = 0
     var count: Int = 1
     var pockets: Array<Pocket> = []
+    var preDigest: Int = -1
     
     /*SOON TO BE REDONE*/
     func setPockets(slot: String, item: Item) {
@@ -200,7 +201,8 @@ class Item {
      
     }
     
-    func use() {
+    //Set the stats of foods and drinks.
+    func setConsumable() {
         
         if (name == "Shoddy Slice of Parmesan Cheese") {
             
@@ -217,73 +219,106 @@ class Item {
         } else if (name == "Shoddy Slice of Brie Cheese") {
             
         } else if (name == "Shoddy Egg Yolk") {
-            saturation = 45;
+            preDigest = 30
+            saturation = 45
         } else if (name == "Shoddy Egg Whites") {
+            preDigest = 45
             saturation = 18;
         } else if (name == "Shoddy White Egg") {
+            preDigest = 45
             saturation = 63;
         } else if (name == "Shoddy Brown Egg") {
+            preDigest = 45
             saturation = 63;
         } else if (name == "Standard Egg Yolk") {
+            preDigest = 30
             saturation = 50;
         } else if (name == "Standard Egg Whites") {
+            preDigest = 45
             saturation = 20;
         } else if (name == "Standard White Egg") {
+            preDigest = 45
             saturation = 70;
         } else if (name == "Standard Brown Egg") {
+            preDigest = 45
             saturation = 70;
         } else if (name == "Surplus Egg Yolk") {
+            preDigest = 30
             saturation = 55;
         } else if (name == "Surplus Egg Whites") {
+            preDigest = 45
             saturation = 22;
         } else if (name == "Surplus White Egg") {
+            preDigest = 45
             saturation = 77;
         } else if (name == "Surplus Brown Egg") {
+            preDigest = 45
             saturation = 77;
         } else if (name == "Specialty Egg Yolk") {
+            preDigest = 30
             saturation = 60;
         } else if (name == "Specialty Egg Whites") {
+            preDigest = 45
             saturation = 24;
         } else if (name == "Specialty White Egg") {
+            preDigest = 45
             saturation = 84;
         } else if (name == "Specialty Brown Egg") {
+            preDigest = 45
             saturation = 84;
         } else if (name == "Shoddy Boiled Egg") {
+            preDigest = 45
             saturation = 67;
         } else if (name == "Patchwork Boiled Egg") {
+            preDigest = 45
             saturation = 71;
         } else if (name == "Standard Boiled Egg") {
+            preDigest = 45
             saturation = 74;
         } else if (name == "Proper Boiled Egg") {
+            preDigest = 45
             saturation = 78;
         } else if (name == "Surplus Boiled Egg") {
             saturation = 81;
+            preDigest = 45
         } else if (name == "Premium Boiled Egg") {
+            preDigest = 45
             saturation = 85;
         } else if (name == "Specialty Boiled Egg") {
+            preDigest = 45
             saturation = 88;
         } else if (name == "Prized Boiled Egg") {
+            preDigest = 45
             saturation = 92;
         } else if (name == "Shoddy Poached Egg") {
+            preDigest = 45
             saturation = 63;
         } else if (name == "Patchwork Poached Egg") {
+            preDigest = 45
             saturation = 66;
         } else if (name == "Standard Poached Egg") {
+            preDigest = 45
             saturation = 70;
         } else if (name == "Proper Poached Egg") {
+            preDigest = 45
             saturation = 73;
         } else if (name == "Surplus Poached Egg") {
+            preDigest = 45
             saturation = 77;
         } else if (name == "Premium Poached Egg") {
+            preDigest = 45
             saturation = 80;
         } else if (name == "Specialty Poached Egg") {
+            preDigest = 45
             saturation = 84;
         } else if (name == "Prized Poached Egg") {
+            preDigest = 45
             saturation = 87;
         }
         
     }
     
+    //Sets the statistics of equipment.
     func setStats() {
 
         if (name == "Shoddy Copper Pugio"){
@@ -969,8 +1004,8 @@ class Item {
             mentalResist = Int(8 * 0.25)
                    
             weight = 500 * 1
-            value = 14 * 5 * 1
-            size = 5 * 12
+            value = 28 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -981,8 +1016,8 @@ class Item {
             mentalResist = Int(9 * 0.25)
                    
             weight = 525 * 1
-            value = 15 * 5 * 1
-            size = 5 * 12
+            value = 30 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -993,8 +1028,8 @@ class Item {
             mentalResist = Int(9 * 0.25)
                    
             weight = 550 * 1
-            value = 16 * 5 * 1
-            size = 5 * 12
+            value = 32 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -1005,8 +1040,8 @@ class Item {
             mentalResist = Int(9 * 0.25)
                    
             weight = 575 * 1
-            value = 17 * 5 * 1
-            size = 5 * 12
+            value = 34 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -1017,8 +1052,8 @@ class Item {
             mentalResist = Int(8 * 0.25 * 1.1)
                    
             weight = 525 * 1
-            value = 15 * 5 * 1
-            size = 5 * 12
+            value = 30 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -1029,8 +1064,8 @@ class Item {
             mentalResist = Int(9 * 0.25 * 1.1)
                    
             weight = 550 * 1
-            value = 16 * 5 * 1
-            size = 5 * 12
+            value = 32 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -1041,8 +1076,8 @@ class Item {
             mentalResist = Int(9 * 0.25 * 1.1)
                    
             weight = 575 * 1
-            value = 17 * 5 * 1
-            size = 5 * 12
+            value = 34 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -1053,8 +1088,8 @@ class Item {
             mentalResist = Int(9 * 0.25 * 1.1)
                    
             weight = 600 * 1
-            value = 18 * 5 * 1
-            size = 5 * 12
+            value = 36 * 5 * 1
+            size = 10 * 12
                    
             setPockets(slot: "Legs", item: self)
                    
@@ -1065,8 +1100,8 @@ class Item {
             mentalResist = Int(8 * 0.50)
                
             weight = 500 * 3
-            value = 14 * 5 * 2
-            size = 5 * 12
+            value = 28 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1077,8 +1112,8 @@ class Item {
             mentalResist = Int(9 * 0.5)
                
             weight = 525 * 3
-            value = 15 * 5 * 2
-            size = 5 * 12
+            value = 30 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1089,8 +1124,8 @@ class Item {
             mentalResist = Int(9 * 0.5)
                
             weight = 550 * 3
-            value = 16 * 5 * 2
-            size = 5 * 12
+            value = 32 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1101,8 +1136,8 @@ class Item {
             mentalResist = Int(9 * 0.5)
                
             weight = 575 * 3
-            value = 17 * 5 * 2
-            size = 5 * 12
+            value = 34 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1113,8 +1148,8 @@ class Item {
             mentalResist = Int(8 * 0.5 * 1.2)
                
             weight = 525 * 3
-            value = 15 * 5 * 2
-            size = 5 * 12
+            value = 30 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1125,8 +1160,8 @@ class Item {
             mentalResist = Int(9 * 0.5 * 1.2)
                
             weight = 550 * 3
-            value = 16 * 5 * 2
-            size = 5 * 12
+            value = 32 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1137,8 +1172,8 @@ class Item {
             mentalResist = Int(9 * 0.5 * 1.2)
                
             weight = 575 * 3
-            value = 17 * 5 * 2
-            size = 5 * 12
+            value = 34 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                
@@ -1149,8 +1184,8 @@ class Item {
             mentalResist = Int(9 * 0.5 * 1.2)
             
             weight = 600 * 3
-            value = 18 * 5 * 2
-            size = 5 * 12
+            value = 36 * 5 * 2
+            size = 10 * 12
                
             setPockets(slot: "Legs", item: self)
                

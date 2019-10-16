@@ -71,6 +71,7 @@ class EntityClass {
     var fat = 13000 //g
     var saturation = 2880 //calories/day
     var hydration = 4320 // mL/day
+    var digestiveTract: Array<Item> = []
     
     init (n: String) {
         

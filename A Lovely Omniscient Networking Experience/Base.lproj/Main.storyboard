@@ -341,6 +341,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="dwarvenButton" destination="DhY-sN-Tp3" id="yc5-no-yKe"/>
                         <outlet property="elvenButton" destination="Puz-oH-UyK" id="hRs-jS-lg5"/>
@@ -529,6 +530,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fsv-iv-V1u"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="buttonFour" destination="8iQ-BK-a9I" id="TxY-fu-fP4"/>
                         <outlet property="buttonOne" destination="aVt-AT-wz8" id="IjA-gw-3L9"/>
@@ -754,6 +756,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RP9-Hh-81y"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="chestButton" destination="3gG-t0-rr3" id="7xF-Lv-gAo"/>
                         <outlet property="legsButton" destination="Cd2-dL-TMn" id="bh4-zq-8hq"/>
@@ -924,6 +927,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U83-sR-q0j"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bloodFluid" destination="dE3-hf-j18" id="O1V-7z-kBb"/>
                         <outlet property="chestView" destination="Pd8-0c-2q8" id="uwm-pz-eF5"/>
@@ -1168,6 +1172,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zen-uK-1xn"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="introText" destination="bIf-Kc-eWi" id="D4D-rM-Feq"/>
                         <outlet property="questTitle" destination="CR0-Ai-2gW" id="DnE-zE-pOy"/>
@@ -1316,6 +1321,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UIR-Wp-Ssj"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="amountLabel" destination="XSf-Lx-dP1" id="4eN-n7-8d3"/>
                         <outlet property="descriptionLabel" destination="IfP-Og-Ksz" id="ot4-nx-4vY"/>
@@ -1473,6 +1479,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="u1p-0i-VV0"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="vO7-oM-6A3" id="OpQ-mR-C5a"/>
                         <outlet property="backgroundImage" destination="iUd-0C-Ork" id="8S1-NR-qVp"/>
@@ -1513,8 +1520,8 @@
         <image name="Move Forward" width="160" height="160"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bBb-Fd-ICb"/>
-        <segue reference="XFk-EV-bp8"/>
+        <segue reference="qE5-yL-NZ2"/>
+        <segue reference="hmh-eE-JLT"/>
         <segue reference="kHD-ui-iTd"/>
     </inferredMetricsTieBreakers>
 </document>
