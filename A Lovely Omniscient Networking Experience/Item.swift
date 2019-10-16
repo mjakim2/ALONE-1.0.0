@@ -85,7 +85,6 @@ class Item {
      x4 value
      */
     
-    //Pocket sizes are based on my iphone XR. See Standard Hammer Shorts for base example. The dimensions are height * width * depth.
     //Accuracy is based on % of hittable pieces + weight of grip / 100.
     //Is that latter part realistic?
     
@@ -605,9 +604,9 @@ class Item {
             
         } else if (name == "Surplus Cloth Hammer Shorts") {
             
-            bleedResist = Int(7 * 1)
-            physicalResist = Int(7 * 0.5)
-            mentalResist = Int(7 * 0.25)
+            bleedResist = Int(6 * 1)
+            physicalResist = Int(6 * 0.5)
+            mentalResist = Int(6 * 0.25)
             
             weight = 300 * 1
             value = 16 * 5 * 1
@@ -617,9 +616,9 @@ class Item {
             
         } else if (name == "Specialty Cloth Hammer Shorts") {
             
-            bleedResist = Int(8 * 1)
-            physicalResist = Int(8 * 0.5)
-            mentalResist = Int(8 * 0.25)
+            bleedResist = Int(6 * 1)
+            physicalResist = Int(6 * 0.5)
+            mentalResist = Int(6 * 0.25)
             
             weight = 325 * 1
             value = 17 * 5 * 1
@@ -653,9 +652,9 @@ class Item {
             
         } else if (name == "Premium Cloth Hammer Shorts") {
             
-            bleedResist = Int(7 * 1 * 1.5)
-            physicalResist = Int(7 * 0.5 * 1.25)
-            mentalResist = Int(7 * 0.25 * 1.1)
+            bleedResist = Int(6 * 1 * 1.5)
+            physicalResist = Int(6 * 0.5 * 1.25)
+            mentalResist = Int(6 * 0.25 * 1.1)
             
             weight = 325 * 1
             value = 17 * 5 * 1
@@ -665,9 +664,9 @@ class Item {
             
         } else if (name == "Prized Cloth Hammer Shorts") {
             
-            bleedResist = Int(8 * 1 * 1.5)
-            physicalResist = Int(8 * 0.5 * 1.25)
-            mentalResist = Int(8 * 0.25 * 1.1)
+            bleedResist = Int(6 * 1 * 1.5)
+            physicalResist = Int(6 * 0.5 * 1.25)
+            mentalResist = Int(6 * 0.25 * 1.1)
             
             weight = 350 * 1
             value = 18 * 5 * 1
@@ -701,9 +700,9 @@ class Item {
             
         } else if (name == "Surplus Fur Hammer Shorts") {
             
-            bleedResist = Int(7 * 0.75)
-            physicalResist = Int(7 * 0.75)
-            mentalResist = Int(7 * 0.5)
+            bleedResist = Int(6 * 0.75)
+            physicalResist = Int(6 * 0.75)
+            mentalResist = Int(6 * 0.5)
             
             weight = 300 * 3
             value = 16 * 5 * 2
@@ -713,9 +712,9 @@ class Item {
             
         } else if (name == "Specialty Fur Hammer Shorts") {
             
-            bleedResist = Int(8 * 0.75)
-            physicalResist = Int(8 * 0.75)
-            mentalResist = Int(8 * 0.5)
+            bleedResist = Int(6 * 0.75)
+            physicalResist = Int(6 * 0.75)
+            mentalResist = Int(6 * 0.5)
             
             weight = 325 * 3
             value = 17 * 5 * 2
@@ -749,9 +748,9 @@ class Item {
             
         } else if (name == "Premium Fur Hammer Shorts") {
             
-            bleedResist = Int(7 * 0.75 * 1.3)
-            physicalResist = Int(7 * 0.75 * 1.3)
-            mentalResist = Int(7 * 0.5 * 1.2)
+            bleedResist = Int(6 * 0.75 * 1.3)
+            physicalResist = Int(6 * 0.75 * 1.3)
+            mentalResist = Int(6 * 0.5 * 1.2)
             
             weight = 325 * 3
             value = 17 * 5 * 2
@@ -761,9 +760,9 @@ class Item {
             
         } else if (name == "Prized Fur Hammer Shorts") {
             
-            bleedResist = Int(8 * 0.75 * 1.3)
-            physicalResist = Int(8 * 0.75 * 1.3)
-            mentalResist = Int(8 * 0.5 * 1.2)
+            bleedResist = Int(6 * 0.75 * 1.3)
+            physicalResist = Int(6 * 0.75 * 1.3)
+            mentalResist = Int(6 * 0.5 * 1.2)
             
             weight = 350 * 3
             value = 18 * 5 * 2
@@ -797,9 +796,9 @@ class Item {
             
         } else if (name == "Surplus Leather Hammer Shorts") {
             
-            bleedResist = Int(7 * 1)
-            physicalResist = Int(7 * 0.75)
-            mentalResist = Int(7 * 0.5)
+            bleedResist = Int(6 * 1)
+            physicalResist = Int(6 * 0.75)
+            mentalResist = Int(6 * 0.5)
             
             weight = 300 * 2
             value = 16 * 5 * 3
@@ -809,9 +808,9 @@ class Item {
             
         } else if (name == "Specialty Leather Hammer Shorts") {
             
-            bleedResist = Int(8 * 1)
-            physicalResist = Int(8 * 0.75)
-            mentalResist = Int(8 * 0.5)
+            bleedResist = Int(6 * 1)
+            physicalResist = Int(6 * 0.75)
+            mentalResist = Int(6 * 0.5)
             
             weight = 325 * 2
             value = 17 * 5 * 3
@@ -845,9 +844,9 @@ class Item {
             
         } else if (name == "Premium Leather Hammer Shorts") {
             
-            bleedResist = Int(7 * 1 * 1.5)
-            physicalResist = Int(7 * 0.75 * 1.3)
-            mentalResist = Int(7 * 0.5 * 1.2)
+            bleedResist = Int(6 * 1 * 1.5)
+            physicalResist = Int(6 * 0.75 * 1.3)
+            mentalResist = Int(6 * 0.5 * 1.2)
             
             weight = 325 * 2
             value = 17 * 5 * 3
@@ -857,9 +856,9 @@ class Item {
             
         } else if (name == "Prized Leather Hammer Shorts") {
             
-            bleedResist = Int(8 * 1 * 1.5)
-            physicalResist = Int(8 * 0.75 * 1.3)
-            mentalResist = Int(8 * 0.5 * 1.2)
+            bleedResist = Int(6 * 1 * 1.5)
+            physicalResist = Int(6 * 0.75 * 1.3)
+            mentalResist = Int(6 * 0.5 * 1.2)
             
             weight = 350 * 2
             value = 18 * 5 * 3
@@ -893,9 +892,9 @@ class Item {
             
         } else if (name == "Surplus Silk Hammer Shorts") {
             
-            bleedResist = Int(7 * 1.5)
-            physicalResist = Int(7 * 0.5)
-            mentalResist = Int(7 * 0.25)
+            bleedResist = Int(6 * 1.5)
+            physicalResist = Int(6 * 0.5)
+            mentalResist = Int(6 * 0.25)
             
             weight = 300 * 1
             value = 16 * 5 * 4
@@ -905,9 +904,9 @@ class Item {
             
         } else if (name == "Specialty Silk Hammer Shorts") {
             
-            bleedResist = Int(8 * 1.5)
-            physicalResist = Int(8 * 0.5)
-            mentalResist = Int(8 * 0.25)
+            bleedResist = Int(6 * 1.5)
+            physicalResist = Int(6 * 0.5)
+            mentalResist = Int(6 * 0.25)
             
             weight = 325 * 1
             value = 17 * 5 * 4
@@ -941,9 +940,9 @@ class Item {
             
         } else if (name == "Premium Silk Hammer Shorts") {
             
-            bleedResist = Int(7 * 1.5 * 1.75)
-            physicalResist = Int(7 * 0.5 * 1.25)
-            mentalResist = Int(7 * 0.25 * 1.1)
+            bleedResist = Int(6 * 1.5 * 1.75)
+            physicalResist = Int(6 * 0.5 * 1.25)
+            mentalResist = Int(6 * 0.25 * 1.1)
             
             weight = 325 * 1
             value = 17 * 5 * 4
@@ -953,9 +952,9 @@ class Item {
             
         } else if (name == "Prized Silk Hammer Shorts") {
             
-            bleedResist = Int(8 * 1.5 * 1.75)
-            physicalResist = Int(8 * 0.5 * 1.25)
-            mentalResist = Int(8 * 0.25 * 1.1)
+            bleedResist = Int(6 * 1.5 * 1.75)
+            physicalResist = Int(6 * 0.5 * 1.25)
+            mentalResist = Int(6 * 0.25 * 1.1)
             
             weight = 350 * 1
             value = 18 * 5 * 4
@@ -963,6 +962,198 @@ class Item {
             
             setPockets(slot: "Legs", item: self)
             
+        } /*Cloth Trousers*/ else if (name == "Shoddy Cloth Trousers") {
+                   
+            bleedResist = Int(8 * 1)
+            physicalResist = Int(8 * 0.5)
+            mentalResist = Int(8 * 0.25)
+                   
+            weight = 500 * 1
+            value = 14 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Standard Cloth Trousers") {
+                   
+            bleedResist = Int(9 * 1)
+            physicalResist = Int(9 * 0.5)
+            mentalResist = Int(9 * 0.25)
+                   
+            weight = 525 * 1
+            value = 15 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Surplus Cloth Trousers") {
+                   
+            bleedResist = Int(9 * 1)
+            physicalResist = Int(9 * 0.5)
+            mentalResist = Int(9 * 0.25)
+                   
+            weight = 550 * 1
+            value = 16 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Specialty Cloth Trousers") {
+                   
+            bleedResist = Int(9 * 1)
+            physicalResist = Int(9 * 0.5)
+            mentalResist = Int(9 * 0.25)
+                   
+            weight = 575 * 1
+            value = 17 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Patchwork Cloth Trousers") {
+                   
+            bleedResist = Int(8 * 1 * 1.5)
+            physicalResist = Int(8 * 0.5 * 1.25)
+            mentalResist = Int(8 * 0.25 * 1.1)
+                   
+            weight = 525 * 1
+            value = 15 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Proper Cloth Trousers") {
+                   
+            bleedResist = Int(9 * 1 * 1.5)
+            physicalResist = Int(9 * 0.5 * 1.25)
+            mentalResist = Int(9 * 0.25 * 1.1)
+                   
+            weight = 550 * 1
+            value = 16 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Premium Cloth Trousers") {
+                   
+            bleedResist = Int(9 * 1 * 1.5)
+            physicalResist = Int(9 * 0.5 * 1.25)
+            mentalResist = Int(9 * 0.25 * 1.1)
+                   
+            weight = 575 * 1
+            value = 17 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } else if (name == "Prized Cloth Trousers") {
+                   
+            bleedResist = Int(9 * 1 * 1.5)
+            physicalResist = Int(9 * 0.5 * 1.25)
+            mentalResist = Int(9 * 0.25 * 1.1)
+                   
+            weight = 600 * 1
+            value = 18 * 5 * 1
+            size = 5 * 12
+                   
+            setPockets(slot: "Legs", item: self)
+                   
+        } /*Fur Trousers*/ else if (name == "Shoddy Fur Trousers") {
+               
+            bleedResist = Int(8 * 0.75)
+            physicalResist = Int(8 * 0.75)
+            mentalResist = Int(8 * 0.50)
+               
+            weight = 500 * 3
+            value = 14 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Standard Fur Trousers") {
+               
+            bleedResist = Int(9 * 0.75)
+            physicalResist = Int(9 * 0.75)
+            mentalResist = Int(9 * 0.5)
+               
+            weight = 525 * 3
+            value = 15 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Surplus Fur Trousers") {
+               
+            bleedResist = Int(9 * 0.75)
+            physicalResist = Int(9 * 0.75)
+            mentalResist = Int(9 * 0.5)
+               
+            weight = 550 * 3
+            value = 16 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Specialty Fur Trousers") {
+               
+            bleedResist = Int(9 * 0.75)
+            physicalResist = Int(9 * 0.75)
+            mentalResist = Int(9 * 0.5)
+               
+            weight = 575 * 3
+            value = 17 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Patchwork Fur Trousers") {
+               
+            bleedResist = Int(8 * 0.75 * 1.3)
+            physicalResist = Int(8 * 0.75 * 1.3)
+            mentalResist = Int(8 * 0.5 * 1.2)
+               
+            weight = 525 * 3
+            value = 15 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Proper Fur Trousers") {
+               
+            bleedResist = Int(9 * 0.75 * 1.3)
+            physicalResist = Int(9 * 0.75 * 1.3)
+            mentalResist = Int(9 * 0.5 * 1.2)
+               
+            weight = 550 * 3
+            value = 16 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Premium Fur Trousers") {
+               
+            bleedResist = Int(9 * 0.75 * 1.3)
+            physicalResist = Int(9 * 0.75 * 1.3)
+            mentalResist = Int(9 * 0.5 * 1.2)
+               
+            weight = 575 * 3
+            value = 17 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
+        } else if (name == "Prized Fur Trousers") {
+               
+            bleedResist = Int(9 * 0.75 * 1.3)
+            physicalResist = Int(9 * 0.75 * 1.3)
+            mentalResist = Int(9 * 0.5 * 1.2)
+            
+            weight = 600 * 3
+            value = 18 * 5 * 2
+            size = 5 * 12
+               
+            setPockets(slot: "Legs", item: self)
+               
         }
         
     }
