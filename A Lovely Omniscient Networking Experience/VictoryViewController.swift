@@ -150,6 +150,8 @@ class VictoryViewController: UIViewController {
         } else {
             currentSpoil.setBackgroundImage(nil, for: .normal)
             spoilsResponse.text = ""
+            equipSpoilButton.isEnabled = false;
+            storeSpoilButton.isEnabled = false;
         }
     }
     

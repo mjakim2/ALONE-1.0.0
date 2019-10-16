@@ -36,6 +36,11 @@ class StartViewController: UIViewController {
         
         questList()
         
+        while (worlds[worldNumber].quests.count < 3) {
+            let blank: Quest = Quest(n: "");
+            worlds[worldNumber].quests.append(blank)
+        }
+        
         labelOne.text = worlds[worldNumber].quests[0].name
         labelTwo.text = worlds[worldNumber].quests[1].name
         labelThree.text = worlds[worldNumber].quests[2].name

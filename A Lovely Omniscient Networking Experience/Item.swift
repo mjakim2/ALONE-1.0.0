@@ -217,38 +217,70 @@ class Item {
             
         } else if (name == "Shoddy Slice of Brie Cheese") {
             
+        } else if (name == "Shoddy Egg Yolk") {
+            saturation = 45;
+        } else if (name == "Shoddy Egg Whites") {
+            saturation = 18;
         } else if (name == "Shoddy White Egg") {
-            saturation = 64;
+            saturation = 63;
         } else if (name == "Shoddy Brown Egg") {
-            saturation = 64;
+            saturation = 63;
+        } else if (name == "Standard Egg Yolk") {
+            saturation = 50;
+        } else if (name == "Standard Egg Whites") {
+            saturation = 20;
         } else if (name == "Standard White Egg") {
-            saturation = 72;
-        } else if (name == "Standard Brown Egg") {
-            saturation = 72;
-        } else if (name == "Surplus White Egg") {
-            saturation = 80;
-        } else if (name == "Surplus Brown Egg") {
-            saturation = 80;
-        } else if (name == "Specialty White Egg") {
-            saturation = 88;
-        } else if (name == "Specialty Brown Egg") {
-            saturation = 88;
-        } else if (name == "Shoddy Boiled Egg") {
             saturation = 70;
-        } else if (name == "Patchwork Boiled Egg") {
+        } else if (name == "Standard Brown Egg") {
+            saturation = 70;
+        } else if (name == "Surplus Egg Yolk") {
+            saturation = 55;
+        } else if (name == "Surplus Egg Whites") {
+            saturation = 22;
+        } else if (name == "Surplus White Egg") {
+            saturation = 77;
+        } else if (name == "Surplus Brown Egg") {
+            saturation = 77;
+        } else if (name == "Specialty Egg Yolk") {
+            saturation = 60;
+        } else if (name == "Specialty Egg Whites") {
+            saturation = 24;
+        } else if (name == "Specialty White Egg") {
+            saturation = 84;
+        } else if (name == "Specialty Brown Egg") {
+            saturation = 84;
+        } else if (name == "Shoddy Boiled Egg") {
             saturation = 67;
+        } else if (name == "Patchwork Boiled Egg") {
+            saturation = 71;
         } else if (name == "Standard Boiled Egg") {
-            saturation = 80;
+            saturation = 74;
         } else if (name == "Proper Boiled Egg") {
-            saturation = 76;
+            saturation = 78;
         } else if (name == "Surplus Boiled Egg") {
-            saturation = 90;
+            saturation = 81;
         } else if (name == "Premium Boiled Egg") {
             saturation = 85;
         } else if (name == "Specialty Boiled Egg") {
-            saturation = 100;
+            saturation = 88;
         } else if (name == "Prized Boiled Egg") {
-            saturation = 95;
+            saturation = 92;
+        } else if (name == "Shoddy Poached Egg") {
+            saturation = 63;
+        } else if (name == "Patchwork Poached Egg") {
+            saturation = 66;
+        } else if (name == "Standard Poached Egg") {
+            saturation = 70;
+        } else if (name == "Proper Poached Egg") {
+            saturation = 73;
+        } else if (name == "Surplus Poached Egg") {
+            saturation = 77;
+        } else if (name == "Premium Poached Egg") {
+            saturation = 80;
+        } else if (name == "Specialty Poached Egg") {
+            saturation = 84;
+        } else if (name == "Prized Poached Egg") {
+            saturation = 87;
         }
         
     }

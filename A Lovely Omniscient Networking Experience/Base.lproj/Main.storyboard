@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -119,6 +117,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <segue destination="3ys-dl-Jzx" kind="show" identifier="createWorld" id="2jj-Ri-hT5"/>
                         <segue destination="lDz-YM-IWY" kind="show" identifier="selectWorld" id="b2H-v3-U6i"/>
@@ -1074,6 +1073,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pSS-JB-ISq"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="currentInventory" destination="eeC-Sg-VY7" id="EFn-8V-yr8"/>
                         <outlet property="currentSpoil" destination="9Jv-JX-VoT" id="pN2-eb-aw6"/>
@@ -1091,7 +1091,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Sw-LX-qZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3305.7971014492755" y="875.89285714285711"/>
+            <point key="canvasLocation" x="3306" y="822"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="Z4g-Ey-KG7">
@@ -1425,17 +1425,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukz-FK-OvF">
-                                <rect key="frame" x="33" y="672" width="26" height="104"/>
+                                <rect key="frame" x="33" y="672" width="26" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.78431372549019607" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rh1-je-ec8">
-                                <rect key="frame" x="63" y="672" width="26" height="104"/>
+                                <rect key="frame" x="63" y="672" width="26" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E6Z-3G-LG2">
-                                <rect key="frame" x="93" y="672" width="26" height="104"/>
+                                <rect key="frame" x="93" y="672" width="26" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -1506,16 +1506,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Blood Jar" width="60" height="480"/>
-        <image name="Energy Jar" width="60" height="480"/>
-        <image name="Mind Jar" width="60" height="480"/>
-        <image name="Move Backward" width="240" height="240"/>
-        <image name="Move Forward" width="240" height="240"/>
+        <image name="Blood Jar" width="40" height="320"/>
+        <image name="Energy Jar" width="40" height="320"/>
+        <image name="Mind Jar" width="40" height="320"/>
+        <image name="Move Backward" width="160" height="160"/>
+        <image name="Move Forward" width="160" height="160"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qRe-6K-Hjw"/>
-        <segue reference="qE5-yL-NZ2"/>
+        <segue reference="bBb-Fd-ICb"/>
         <segue reference="XFk-EV-bp8"/>
-        <segue reference="cae-KP-c7f"/>
+        <segue reference="kHD-ui-iTd"/>
     </inferredMetricsTieBreakers>
 </document>
