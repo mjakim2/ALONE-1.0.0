@@ -548,7 +548,7 @@ class BattleViewController: UIViewController {
             
             enemyImages[index].image = enemyRightwardImage(phase: enemy.walkPhase % 4, enemy: enemy.name)
             
-            enemy.distance += Int(Double(enemy.quickness) * 0.3)
+            enemy.distance += Int(Double(enemy.quickness) * 0.27)
             
             enemyImages[index].center.x = CGFloat(142 + enemy.distance - player.distance)
             
@@ -564,7 +564,7 @@ class BattleViewController: UIViewController {
             
             enemyImages[index].image = enemyRightwardImage(phase: enemy.walkPhase % 4, enemy: enemy.name)
             
-            enemy.distance += Int(Double(enemy.quickness) * 0.5)
+            enemy.distance += Int(Double(enemy.quickness) * 0.63)
             
             enemyImages[index].center.x = CGFloat(142 + enemy.distance - player.distance)
             
@@ -572,23 +572,23 @@ class BattleViewController: UIViewController {
             
             enemyImages[index].image = enemyLeftwardImage(phase: enemy.walkPhase % 4, enemy: enemy.name)
             
-            enemy.distance -= Int(Double(enemy.quickness) * 0.6)
+            enemy.distance -= Int(Double(enemy.quickness) * 0.7)
             
             enemyImages[index].center.x = CGFloat(142 + enemy.distance - player.distance)
             
         } else if (enemy.actions[enemy.actionNumber] == "Sprint Rightward") {
             
-            enemyImages[index].image = enemyRightwardImage(phase: enemy.walkPhase % 4, enemy: enemy.name)
+            enemyImages[index].image = enemyRightwardImage(phase: enemy.walkPhase % 5, enemy: enemy.name)
             
-            enemy.distance += Int(Double(enemy.quickness) * 0.8)
+            enemy.distance += Int(Double(enemy.quickness) * 0.9)
             
             enemyImages[index].center.x = CGFloat(142 + enemy.distance - player.distance)
             
         } else if (enemy.actions[enemy.actionNumber] == "Sprint Leftward"){
             
-            enemyImages[index].image = enemyLeftwardImage(phase: enemy.walkPhase % 4, enemy: enemy.name)
+            enemyImages[index].image = enemyLeftwardImage(phase: enemy.walkPhase % 5, enemy: enemy.name)
             
-            enemy.distance -= Int(Double(enemy.quickness) * 0.9)
+            enemy.distance -= Int(Double(enemy.quickness) * 1.0)
             
             enemyImages[index].center.x = CGFloat(142 + enemy.distance - player.distance)
             
@@ -731,7 +731,7 @@ class BattleViewController: UIViewController {
         if (seconds % (1000/worlds[worldNumber].character.quickness) == 0){
             worlds[worldNumber].character.walkPhase += 1
             if worlds[worldNumber].character.actions[worlds[worldNumber].character.actionNumber] == "Move Forward" {
-                worlds[worldNumber].character.distance += Int(Double(worlds[worldNumber].character.quickness) * 0.6)
+                worlds[worldNumber].character.distance += Int(Double(worlds[worldNumber].character.quickness) * 0.3)
             }
             if (worlds[worldNumber].character.walkPhase == 20){
                 worlds[worldNumber].character.walkPhase = 0
@@ -916,6 +916,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground00")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground00")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods00")!
             }
         case 1:
             if(background == "Empty House"){
@@ -924,6 +926,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground01")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground01")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods01")!
             }
         case 2:
             if(background == "Empty House"){
@@ -932,6 +936,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground02")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground02")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods02")!
             }
         case 3:
             if(background == "Empty House"){
@@ -940,6 +946,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground03")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground03")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods03")!
             }
         case 4:
             if(background == "Empty House"){
@@ -948,6 +956,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground04")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground04")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods04")!
             }
         case 5:
             if(background == "Empty House"){
@@ -956,6 +966,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground05")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground05")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods05")!
             }
         case 6:
             if(background == "Empty House"){
@@ -964,6 +976,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground06")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground06")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods06")!
             }
         case 7:
             if(background == "Empty House"){
@@ -972,6 +986,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground07")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground07")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods07")!
             }
         case 8:
             if(background == "Empty House"){
@@ -980,6 +996,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground08")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground08")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods08")!
             }
         case 9:
             if(background == "Empty House"){
@@ -988,6 +1006,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground00")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground00")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods09")!
             }
         case 10:
             if(background == "Empty House"){
@@ -996,6 +1016,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground01")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground01")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods10")!
             }
         case 11:
             if(background == "Empty House"){
@@ -1004,6 +1026,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground02")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground02")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods11")!
             }
         case 12:
             if(background == "Empty House"){
@@ -1012,6 +1036,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground03")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground03")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods12")!
             }
         case 13:
             if(background == "Empty House"){
@@ -1020,6 +1046,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground04")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground04")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods13")!
             }
         case 14:
             if(background == "Empty House"){
@@ -1028,6 +1056,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground05")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground05")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods14")!
             }
         case 15:
             if(background == "Empty House"){
@@ -1036,6 +1066,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground06")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground06")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods15")!
             }
         case 16:
             if(background == "Empty House"){
@@ -1044,6 +1076,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground07")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground07")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods16")!
             }
         case 17:
             if(background == "Empty House"){
@@ -1052,6 +1086,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "TundraBackground08")!
             } else if (background == "Birch Grove"){
                 return UIImage(named: "BirchGroveBackground08")!
+            } else if (background == "Dry Woods"){
+                return UIImage(named: "DryWoods17")!
             }
         default:
             return UIImage(named: "EmptyHouseBackground00")!

@@ -20,7 +20,7 @@ class EntityClass {
     var maxMP: Int = 100
     var accuracy: Int = 0 // 0 means no modifier, but attacks have different accuracies.
     var evasion: Int = 0 //This 0 does means 0% to dodge, but attacks may still miss.
-    var quickness: Int = 5 //Relates to a character's quickness on screen, augmenting FPS.
+    var quickness: Int = 5 //Relates to a character's quickness on screen, augmenting FPS. The value assigned is twice the sprinting speed in m/s.
     
     /*Resistances to just about everything.
      *Resistance not only increases the chance of completely negating an effect,
@@ -317,7 +317,7 @@ class EntityClass {
             EP = maxEP
             MP = maxMP
             accuracy = 0
-            quickness = 10
+            quickness = 13
             evasion = 25
             //Actions
             actions.append("Stand")
@@ -382,7 +382,7 @@ class EntityClass {
             maxEP = 50
             maxMP = 100
             accuracy = 0
-            quickness = 9
+            quickness = 7
             evasion = 25
             //Actions
             actions.append("Sprint Leftward")
@@ -449,6 +449,32 @@ class EntityClass {
             actions.append("Stand")
             actions.append("Run Rightward")
             
+        } else if (name == "Purple Bone Monster") {
+            //Statistics
+            maxHP = 10000 * 3 / 5
+            maxEP = 2500
+            maxMP = 2160
+            accuracy = 0
+            quickness = 11
+            evasion = 10
+            //Actions
+            actions.append("Run Leftward")
+            actions.append("Attack")
+            actions.append("Run Rightward")
+            actions.append("Stand")
+        } else if (name == "Brown Bone Monster") {
+            //Statistics
+            maxHP = 10000 * 3 / 5
+            maxEP = 2250
+            maxMP = 2480
+            accuracy = 0
+            quickness = 11
+            evasion = 10
+            //Actions
+            actions.append("Run Leftward")
+            actions.append("Attack")
+            actions.append("Run Rightward")
+            actions.append("Stand")
         }
        
     }

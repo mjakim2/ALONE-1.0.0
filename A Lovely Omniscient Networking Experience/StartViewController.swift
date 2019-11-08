@@ -250,10 +250,18 @@ class StartViewController: UIViewController {
             return "Birch Grove"
         } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Grove"){
             return "Birch Grove"
-        } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Grove"){
+        } else if (name == "Dark Hunting" && worlds[worldNumber].geography == "Grove"){
             return "Birch Grove"
-        } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Grove"){
+        } else if (name == "Dawn Hunting" && worlds[worldNumber].geography == "Grove"){
             return "Birch Grove"
+        } else if (name == "Day Hunting" && worlds[worldNumber].geography == "Cordillera"){
+            return "Dry Woods"
+        } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Cordillera"){
+            return "Dry Woods"
+        } else if (name == "Dark Hunting" && worlds[worldNumber].geography == "Cordillera"){
+            return "Dry Woods"
+        } else if (name == "Dawn Hunting" && worlds[worldNumber].geography == "Cordillera"){
+            return "Dry Woods"
         }
         
         return "Empty House"
@@ -286,6 +294,8 @@ class StartViewController: UIViewController {
             bg.image = UIImage(named: "TundraBackground00")
         } else if (worlds[worldNumber].quests[index].background == "Birch Grove") {
             bg.image = UIImage(named: "BirchGroveBackground00")
+        } else if (worlds[worldNumber].quests[index].background == "Dry Woods") {
+            bg.image = UIImage(named: "DryWoods00")
         } else {
             bg.image = UIImage(named: "EmptyHouseBackground00")
         }
