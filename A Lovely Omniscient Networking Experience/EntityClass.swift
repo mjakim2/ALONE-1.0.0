@@ -475,6 +475,20 @@ class EntityClass {
             actions.append("Attack")
             actions.append("Run Rightward")
             actions.append("Stand")
+        } else if (name == "Graveyrd Skull") {
+            //Statistics
+            maxHP = 500 * 3 / 5
+            maxEP = 1200
+            maxMP = 1500
+            bleedResist = 90;
+            accuracy = 0
+            quickness = 10
+            evasion = 10
+            //Actions
+            actions.append("Run Leftward")
+            actions.append("Attack")
+            actions.append("Run Rightward")
+            actions.append("Stand")
         }
        
     }
