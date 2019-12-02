@@ -65,6 +65,7 @@ class BattleViewController: UIViewController {
         legsImage.image = UIImage(named: "ClothHammerShortsWalking00")
         setActionImage()
         setSky(time: worlds[worldNumber].time)
+        updateBars()
         
         view.backgroundColor = worlds[worldNumber].color
         
@@ -84,7 +85,6 @@ class BattleViewController: UIViewController {
                 ratImage.center.y = torsoImage.center.y
                 worlds[worldNumber].quests[questNumber].enemies.append(rat)
                 enemyImages.append(ratImage)
-                print("The number of images in enemyImages is \(enemyImages.count).")
                 counter += 1;
             }
             
@@ -124,7 +124,6 @@ class BattleViewController: UIViewController {
                 doeImage.center.y = torsoImage.center.y
                 worlds[worldNumber].quests[questNumber].enemies.append(doe)
                 enemyImages.append(doeImage)
-                print("The number of images in enemyImages is \(enemyImages.count).")
                 counter += 1;
             }
             
@@ -144,8 +143,7 @@ class BattleViewController: UIViewController {
                 doeImage.center.y = torsoImage.center.y
                 worlds[worldNumber].quests[questNumber].enemies.append(doe)
                 enemyImages.append(doeImage)
-                print("The number of images in enemyImages is \(enemyImages.count).")
-                counter += 1;
+                
             }
             
         } else if (worlds[worldNumber].quests[questNumber].name == "Dawn Hunting"){
@@ -164,8 +162,28 @@ class BattleViewController: UIViewController {
                 doeImage.center.y = torsoImage.center.y
                 worlds[worldNumber].quests[questNumber].enemies.append(doe)
                 enemyImages.append(doeImage)
-                print("The number of images in enemyImages is \(enemyImages.count).")
                 counter += 1;
+            }
+            
+        } else if (worlds[worldNumber].quests[questNumber].name == "Cavesin Graveyard") {
+            
+            var counter = 1;
+            
+            while (counter <= 5) {
+            
+                let skull = EntityClass(n: "Graveyard Skull")
+                skull.distance = 200 * counter + 300
+                let skullImage = UIImageView(image: UIImage(named: "GraveyardSkull00"))
+                skullImage.frame = CGRect(x: 0, y: 0, width: torsoImage.bounds.width, height: torsoImage.bounds.height)
+                view.addSubview(skullImage)
+                skullImage.isHidden = false
+                skullImage.center.x = CGFloat(skull.distance - worlds[worldNumber].character.distance + 142)
+                skullImage.center.y = torsoImage.center.y
+                worlds[worldNumber].quests[questNumber].enemies.append(skull)
+                enemyImages.append(skullImage)
+            
+                counter += 1;
+                
             }
             
         }
@@ -217,7 +235,39 @@ class BattleViewController: UIViewController {
     //until action images are create, use strings.
     func actionLabel(){
     actionButton.setTitle(worlds[worldNumber].character.actions[worlds[worldNumber].character.actionNumber], for: .normal)
-        
+    }
+    
+    //Given the time change, test whether this quest should end.
+    func shouldQuit() -> Bool {
+        let time: Int = worlds[worldNumber].time
+        let ends: String = worlds[worldNumber].quests[questNumber].ends
+        if (ends == "Phase") {
+            if (time == 60*8 || time == 60*16 || time == 60*20 || time == 60*4) {
+                return true;
+            }
+            return false;
+        } else if (ends == "Day") {
+            if (time == 60*8) {
+                return true;
+            }
+            return false;
+        } else if (ends == "Dusk") {
+            if (time == 60*16) {
+                return true;
+            }
+            return false;
+        } else if (ends == "Dark") {
+            if (time == 60*20) {
+                return true;
+            }
+            return false;
+        } else if (ends == "Dawn") {
+            if (time == 60*4) {
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
     
     //Gives AI to the enemy, decision-making and the like.
@@ -258,6 +308,30 @@ class BattleViewController: UIViewController {
                 
                 //Don't move the doe!
                 enemy.actionNumber = 0
+                
+            }
+            
+        } else if(enemy.name == "Graveyard Skull"){
+            
+            if(worlds[worldNumber].character.distance > enemy.distance){
+                
+                //Enable the skull's backward movement
+                enemy.actionNumber = 2
+                
+            } else if (worlds[worldNumber].character.distance + Int(leftFootImage.center.x) / 2 > enemy.distance){
+                
+                //Enable the skull's attack mode
+                enemy.actionNumber = 1
+                
+            } else if (worlds[worldNumber].character.distance + Int(leftFootImage.center.x) * 5 > enemy.distance){
+                
+                //Enable the skull's forward movement
+                enemy.actionNumber = 0
+                
+            } else {
+                
+                //Don't move the skull!
+                enemy.actionNumber = 3
                 
             }
             
@@ -395,8 +469,6 @@ class BattleViewController: UIViewController {
             }
                 
         }
-        
-        print(sum)
         return sum
     }
     
@@ -479,7 +551,7 @@ class BattleViewController: UIViewController {
                 baseMPDamage *= 2
             }
                 
-            print("You Hit!")
+            print("They Hit!")
             let damageHP: Int = Int(baseHPDamage * (1 - (summarizeStat(entity: player, statistic: "HP Resist")/100)))
             let damageEP: Int = Int(baseEPDamage * (1 - (summarizeStat(entity: player, statistic: "EP Resist")/100)))
             let damageMP: Int = Int(baseMPDamage * (1 - (summarizeStat(entity: player, statistic: "MP Resist")/100)))
@@ -490,7 +562,7 @@ class BattleViewController: UIViewController {
                 
             print("The player's HP is \(player.HP).\nThe player's EP is \(player.EP).\nThe player's MP is \(player.MP).")
             
-            if(enemy.name == "Brown Rat"){
+            if (enemy.name == "Brown Rat") {
                 
                 if(arc4random_uniform(100) < summarizeStat(entity: player, statistic: "Bleed Resist")){
                     let bleeding = Debuff(n: "Bleeding",d: 12)//Erik's Recommnedation based on a rat bite bleeding four times worse than a paper cut.
@@ -514,26 +586,25 @@ class BattleViewController: UIViewController {
     
     //Enacts the actions of a given enemy.
     func enemyAction(index: Int){
-        print("Index is \(index).")
         let enemy = worlds[worldNumber].quests[questNumber].enemies[index]
         
         let player = worlds[worldNumber].character!
         
-        print("The count of enemyImages is \(enemyImages.count).")
-        
         if (enemy.actions[enemy.actionNumber] == "Attack") {
             
             enemyImages[index].image = enemyAttackingImage(phase: enemy.walkPhase, enemy: enemy.name)
-                    
-            if(enemy.walkPhase > 2 && enemy.walkPhase < 8){
-                enemy.distance -= 10;
-            } else if(enemy.walkPhase > 8){
-                enemy.distance += 5;
+            
+            if (enemy.name == "Brown Rat") {
+                if(enemy.walkPhase >= enemy.beginFrame && enemy.walkPhase <= enemy.endFrame){
+                    enemy.distance -= 10;
+                } else if(enemy.walkPhase > 8){
+                    enemy.distance += 5;
+                }
             }
             
-            let enemyRange: Int = Int(leftFootImage.frame.width) / 2
-            
-            if((enemy.walkPhase > 3 && enemy.walkPhase < 7) && (enemy.distance - player.distance > enemyRange && enemy.distance - player.distance < enemyRange)){
+            let enemyRange: Int = Int(Double(leftFootImage.bounds.width) * (enemy.entityRange))
+            print(enemyRange)
+            if((enemy.walkPhase >= enemy.beginFrame && enemy.walkPhase <= enemy.endFrame) && (enemy.distance - player.distance < enemyRange && enemy.distance - player.distance > -1 * enemyRange)){
                 
                 print("In range...")
                 enemyAttack(enemy: enemy)
@@ -633,9 +704,9 @@ class BattleViewController: UIViewController {
             }
             
             print("You Hit!")
-            let damageHP: Int = Int(baseHPDamage * (1 - (summarizeStat(entity: enemy, statistic: "HP Resist")/100)))
-            let damageEP: Int = Int(baseEPDamage * (1 - (summarizeStat(entity: enemy, statistic: "EP Resist")/100)))
-            let damageMP: Int = Int(baseMPDamage * (1 - (summarizeStat(entity: enemy, statistic: "MP Resist")/100)))
+            let damageHP: Int = Int(Double(baseHPDamage) * (1 - (Double(summarizeStat(entity: enemy, statistic: "HP Resist"))/100)))
+            let damageEP: Int = Int(Double(baseEPDamage) * (1 - (Double(summarizeStat(entity: enemy, statistic: "EP Resist"))/100)))
+            let damageMP: Int = Int(Double(baseMPDamage) * (1 - (Double(summarizeStat(entity: enemy, statistic: "MP Resist"))/100)))
                 
             enemy.HP -= damageHP
             enemy.EP -= damageEP
@@ -652,6 +723,7 @@ class BattleViewController: UIViewController {
         
     }
     
+    //Sets the color of the sky depending on the time. Useful for determining the function shouldQuit.
     func setSky(time: Int){
         if(time >= 60*8 && time < 60*16){
             skyImage.image = UIImage(named: "Day Sky")
@@ -677,7 +749,12 @@ class BattleViewController: UIViewController {
                 worlds[worldNumber].time = 0
                 worlds[worldNumber].day += 1
             }
-            print(worlds[worldNumber].time)
+            if (worlds[worldNumber].time % 60 == 0) {
+                if (shouldQuit()) {
+                    print("Time's up!")
+                    performSegue(withIdentifier: "toVictory", sender: self)
+                }
+            }
         }
         
         var counter = 0
@@ -693,7 +770,6 @@ class BattleViewController: UIViewController {
                 if(enemy.walkPhase > 13){
                     enemy.walkPhase = 0
                 }
-                print("The number of enemies is \(worlds[worldNumber].quests[questNumber].enemies.count).")
                 enemyAction(index: counter)
             }
             
@@ -918,6 +994,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground00")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods00")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard00")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard00")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard00")!
             }
         case 1:
             if(background == "Empty House"){
@@ -928,6 +1010,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground01")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods01")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard01")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard01")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard01")!
             }
         case 2:
             if(background == "Empty House"){
@@ -938,6 +1026,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground02")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods02")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard02")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard02")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard02")!
             }
         case 3:
             if(background == "Empty House"){
@@ -948,6 +1042,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground03")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods03")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard03")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard03")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard03")!
             }
         case 4:
             if(background == "Empty House"){
@@ -958,6 +1058,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground04")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods04")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard04")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard04")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard04")!
             }
         case 5:
             if(background == "Empty House"){
@@ -968,6 +1074,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground05")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods05")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard05")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard05")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard05")!
             }
         case 6:
             if(background == "Empty House"){
@@ -978,6 +1090,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground06")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods06")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard06")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard06")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard06")!
             }
         case 7:
             if(background == "Empty House"){
@@ -988,6 +1106,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground07")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods07")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard07")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard07")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard07")!
             }
         case 8:
             if(background == "Empty House"){
@@ -998,6 +1122,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground08")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods08")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard08")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard08")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard08")!
             }
         case 9:
             if(background == "Empty House"){
@@ -1008,6 +1138,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground00")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods09")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard09")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard09")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard09")!
             }
         case 10:
             if(background == "Empty House"){
@@ -1018,6 +1154,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground01")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods10")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard10")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard10")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard10")!
             }
         case 11:
             if(background == "Empty House"){
@@ -1028,6 +1170,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground02")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods11")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard11")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard11")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard11")!
             }
         case 12:
             if(background == "Empty House"){
@@ -1038,6 +1186,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground03")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods12")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard12")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard12")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard12")!
             }
         case 13:
             if(background == "Empty House"){
@@ -1048,6 +1202,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground04")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods13")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard13")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard13")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard13")!
             }
         case 14:
             if(background == "Empty House"){
@@ -1058,6 +1218,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground05")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods14")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard14")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard14")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard14")!
             }
         case 15:
             if(background == "Empty House"){
@@ -1068,6 +1234,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground06")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods15")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard15")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard15")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard15")!
             }
         case 16:
             if(background == "Empty House"){
@@ -1078,6 +1250,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground07")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods16")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard16")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard16")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard16")!
             }
         case 17:
             if(background == "Empty House"){
@@ -1088,6 +1266,12 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BirchGroveBackground08")!
             } else if (background == "Dry Woods"){
                 return UIImage(named: "DryWoods17")!
+            } else if (background == "Dry Graveyard"){
+                return UIImage(named: "DryGraveyard17")!
+            } else if (background == "Green Graveyard"){
+                return UIImage(named: "GreenGraveyard17")!
+            } else if (background == "Barren Graveyard"){
+                return UIImage(named: "BarrenGraveyard17")!
             }
         default:
             return UIImage(named: "EmptyHouseBackground00")!
@@ -1105,30 +1289,32 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BrownRat10")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeRightward00")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull00")!
             }
         case 1:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat11")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeRightward01")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull01")!
             }
         case 2:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat12")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeRightward02")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull02")!
             }
         case 3:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat13")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeRightward03")!
-            }
-        case 4:
-            if(enemy == "Brown Rat"){
-                return UIImage(named: "BrownRat14")!
-            } else if (enemy == "Brown Doe"){
-                return UIImage(named: "BrownDoeRightward04")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull01")!
             }
         default:
             return UIImage(named: "BrownRat10")!
@@ -1145,30 +1331,32 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "BrownRat10")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeLeftward00")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull00")!
             }
         case 1:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat11")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeLeftward01")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull01")!
             }
         case 2:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat12")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeLeftward02")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull02")!
             }
         case 3:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat13")!
             } else if (enemy == "Brown Doe"){
                 return UIImage(named: "BrownDoeLeftward03")!
-            }
-        case 4:
-            if(enemy == "Brown Rat"){
-                return UIImage(named: "BrownRat14")!
-            } else if (enemy == "Brown Doe"){
-                return UIImage(named: "BrownDoeLeftward04")!
+            } else if (enemy == "Graveyard Skull"){
+                return UIImage(named: "GraveyardSkull01")!
             }
         default:
             return UIImage(named: "BrownRat10")!
@@ -1183,82 +1371,122 @@ class BattleViewController: UIViewController {
         case 0:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat00")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull00")!
             }
         case 1:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat01")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull01")!
             }
         case 2:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat02")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull02")!
             }
         case 3:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat03")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull03")!
             }
         case 4:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat04")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull04")!
             }
         case 5:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat05")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull05")!
             }
         case 6:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat06")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull06")!
             }
         case 7:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat07")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull07")!
             }
         case 8:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat08")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull08")!
             }
         case 9:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat09")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull09")!
             }
         case 10:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat10")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull10")!
             }
         case 11:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat11")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull11")!
             }
         case 12:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat12")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull12")!
             }
         case 13:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat13")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull13")!
             }
         case 14:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat14")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull00")!
             }
         case 15:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat15")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull01")!
             }
         case 16:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat16")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull02")!
             }
         case 17:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat17")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull11")!
             }
         case 18:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat18")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull12")!
             }
         case 19:
             if(enemy == "Brown Rat"){
                 return UIImage(named: "BrownRat19")!
+            } else if (enemy == "Graveyard Skull") {
+                return UIImage(named: "GraveyardSkull13")!
             }
         default:
             return UIImage(named: "BrownRat00")!

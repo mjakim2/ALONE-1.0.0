@@ -46,6 +46,9 @@ class VictoryViewController: UIViewController {
         if (worlds[worldNumber].quests[questNumber].spoils.count > 0) {
             spoilIndex = 0
             setSpoil()
+        } else {
+            storeSpoilButton.isEnabled = false
+            equipSpoilButton.isEnabled = false
         }
         
         var bodyCount: Int = 0
@@ -114,6 +117,10 @@ class VictoryViewController: UIViewController {
         if (worlds[worldNumber].character.addItem(item: worlds[worldNumber].quests[questNumber].spoils[spoilIndex])){
             worlds[worldNumber].quests[questNumber].spoils.remove(at: spoilIndex)
             spoilIndex -= 1
+            //If we stored the first item in the array, but there's more to go, kick back the index.
+            if (spoilIndex < 0 && worlds[worldNumber].quests[questNumber].spoils.count > 0) {
+                spoilIndex += 1
+            }
         }
         setSpoil()
     }
@@ -123,6 +130,12 @@ class VictoryViewController: UIViewController {
         let oldEquip = worlds[worldNumber].character.putOnEquipment(slot: equip.slot, equip: equip)
         if (oldEquip.name != "N/a") {
             worlds[worldNumber].quests[questNumber].spoils[spoilIndex] = oldEquip
+        } else {
+            spoilIndex -= 1
+            //If we equipped the first item in the array, but there's more to go, kick back the index.
+            if (spoilIndex < 0 && worlds[worldNumber].quests[questNumber].spoils.count > 0) {
+                spoilIndex += 1
+            }
         }
         setSpoil()
     }
@@ -144,6 +157,7 @@ class VictoryViewController: UIViewController {
     
     //A simple function that sets the image and text.
     func setSpoil() {
+        //While this if-statement doesn't work well if index < 0 but count > 0, we prevented this in the store button.
         if (spoilIndex > -1 && spoilIndex < worlds[worldNumber].quests[questNumber].spoils.count) {
             currentSpoil.setBackgroundImage(UIImage(named: worlds[worldNumber].quests[questNumber].spoils[spoilIndex].name), for: .normal)
             spoilsResponse.text = worlds[worldNumber].quests[questNumber].spoils[spoilIndex].name

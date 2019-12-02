@@ -66,10 +66,10 @@ class StartViewController: UIViewController {
         view.backgroundColor = worlds[worldNumber].color
         
         //Collecting the names of the backgrounds for the quests...
-        worlds[worldNumber].quests[0].background = setBackgroundName(n: worlds[worldNumber].quests[0].name)
-        worlds[worldNumber].quests[1].background = setBackgroundName(n: worlds[worldNumber].quests[1].name)
-        worlds[worldNumber].quests[2].background = setBackgroundName(n: worlds[worldNumber].quests[2].name)
-        worlds[worldNumber].quests[3].background = setBackgroundName(n: worlds[worldNumber].quests[3].name)
+        worlds[worldNumber].quests[0].setBackgroundName(biome: worlds[worldNumber].geography)
+        worlds[worldNumber].quests[1].setBackgroundName(biome: worlds[worldNumber].geography)
+        worlds[worldNumber].quests[2].setBackgroundName(biome: worlds[worldNumber].geography)
+        worlds[worldNumber].quests[3].setBackgroundName(biome: worlds[worldNumber].geography)
         
         //...and then setting said backgrounds.
         setBackground(bg: imageOne, index: 0)
@@ -136,8 +136,12 @@ class StartViewController: UIViewController {
             
         }
         
-        //Adding on Caranith quests if in Cavesin.
+        //Adding on Cavesin quests if in Cavesin.
         if(worlds[worldNumber].currentLocation == "Cavesin"){
+            
+            if(checkForQuest(n: "Cavesin Graveyard") < 0){
+                setQuest(n: "Cavesin Graveyard")
+            }
             
             //Cavesin Town Viewing Quests
             if(checkForQuest(n: "Cavesin at Day") < 0 && (time >= 8*60 && time < 60*16)){
@@ -227,44 +231,11 @@ class StartViewController: UIViewController {
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dark"))
             } else if(checkForQuest(n: "Cavesin at Dawn") > 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dawn"))
+            } else if(checkForQuest(n: "Cavesin Graveyard") > 0){
+                worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin Graveyard"))
             }
             
         }
-    }
-    
-    func setBackgroundName(n: String) -> String{
-        
-        let name = n
-        
-        if(name == "Baker's Tutorial"){
-            return "Empty House"
-        } else if (name == "Day Hunting" && worlds[worldNumber].geography == "Tundra"){
-            return "Tundra Fields"
-        } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Tundra"){
-            return "Tundra Fields"
-        } else if (name == "Dark Hunting" && worlds[worldNumber].geography == "Tundra"){
-            return "Tundra Fields"
-        } else if (name == "Dawn Hunting" && worlds[worldNumber].geography == "Tundra"){
-            return "Tundra Fields"
-        } else if (name == "Day Hunting" && worlds[worldNumber].geography == "Grove"){
-            return "Birch Grove"
-        } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Grove"){
-            return "Birch Grove"
-        } else if (name == "Dark Hunting" && worlds[worldNumber].geography == "Grove"){
-            return "Birch Grove"
-        } else if (name == "Dawn Hunting" && worlds[worldNumber].geography == "Grove"){
-            return "Birch Grove"
-        } else if (name == "Day Hunting" && worlds[worldNumber].geography == "Cordillera"){
-            return "Dry Woods"
-        } else if (name == "Dusk Hunting" && worlds[worldNumber].geography == "Cordillera"){
-            return "Dry Woods"
-        } else if (name == "Dark Hunting" && worlds[worldNumber].geography == "Cordillera"){
-            return "Dry Woods"
-        } else if (name == "Dawn Hunting" && worlds[worldNumber].geography == "Cordillera"){
-            return "Dry Woods"
-        }
-        
-        return "Empty House"
     }
     
     //Sets the quest indicated.
@@ -296,6 +267,12 @@ class StartViewController: UIViewController {
             bg.image = UIImage(named: "BirchGroveBackground00")
         } else if (worlds[worldNumber].quests[index].background == "Dry Woods") {
             bg.image = UIImage(named: "DryWoods00")
+        } else if (worlds[worldNumber].quests[index].background == "Dry Graveyard") {
+            bg.image = UIImage(named: "DryGraveyard00")
+        } else if (worlds[worldNumber].quests[index].background == "Green Graveyard") {
+            bg.image = UIImage(named: "GreenGraveyard00")
+        } else if (worlds[worldNumber].quests[index].background == "Barren Graveyard") {
+            bg.image = UIImage(named: "BarrenGraveyard00")
         } else {
             bg.image = UIImage(named: "EmptyHouseBackground00")
         }

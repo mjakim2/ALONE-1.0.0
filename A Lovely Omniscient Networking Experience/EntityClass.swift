@@ -71,7 +71,13 @@ class EntityClass {
     var fat = 13000 //g
     var saturation = 2880 //calories/day
     var hydration = 4320 // mL/day
+    var hunger = 2800 //calories/day
+    var thirst = 4320 //mL/day
     var digestiveTract: Array<Item> = []
+    //These are timing frames for enemy attacks.
+    var beginFrame = -1
+    var endFrame = -1
+    var entityRange: Double = 0.0 //This is multiplied by the game's entity frame.
     
     init (n: String) {
         
@@ -285,6 +291,28 @@ class EntityClass {
         
     }
     
+    func entityUpkeep(time: Int) {
+        var count: Int = time
+        while (count > 0) {
+            if (hydration > thirst / 1440) {
+                hydration -= thirst / 1440
+            } else {
+                hydration = 0
+                MP -= maxMP / 1440
+            }
+            if (saturation > hunger / 1440) {
+                saturation -= hunger / 1440
+            } else {
+                saturation = 0
+                if (arc4random_uniform(7) == 0) {
+                    fat -= 1
+                }
+                EP -= maxEP / 2880
+            }
+            count -= 1;
+        }
+    }
+    
     //Adds an item to the player's inventory, if possible.
     func addItem(item: Item) -> Bool {
         var didFindPocket = false
@@ -400,6 +428,10 @@ class EntityClass {
             let claws = Equipment(n: "Rat Claws",s: "Main Hand")
             claws.setStats()
             putOnEquipment(slot: claws.slot, equip: claws)
+            //Frames
+            beginFrame = 3
+            endFrame = 7
+            entityRange = 0.5
             
         } else if (name == "Brown Doe") {
             //Statistics
@@ -475,7 +507,7 @@ class EntityClass {
             actions.append("Attack")
             actions.append("Run Rightward")
             actions.append("Stand")
-        } else if (name == "Graveyrd Skull") {
+        } else if (name == "Graveyard Skull") {
             //Statistics
             maxHP = 500 * 3 / 5
             maxEP = 1200
@@ -489,6 +521,16 @@ class EntityClass {
             actions.append("Attack")
             actions.append("Run Rightward")
             actions.append("Stand")
+            //Equipment
+            let head = BodyPart(n: "Head")
+            bodyParts.append(head)
+            let mechanism = Equipment(n: "Beer Spitting Mechanism",s: "Head")
+            mechanism.setStats()
+            putOnEquipment(slot: mechanism.slot, equip: mechanism)
+            //Frames
+            beginFrame = 5
+            endFrame = 9
+            entityRange = 0.2
         }
        
     }

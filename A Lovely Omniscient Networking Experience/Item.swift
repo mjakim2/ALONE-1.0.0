@@ -613,7 +613,18 @@ class Item {
             
             accuracy = 75
             
-        } /*Cloth Hammer Shorts*/ else if (name == "Shoddy Cloth Hammer Shorts") {
+        } else if (name == "Beer Spitting Mechanism"){
+            
+            minHPDMG = 0 //Spitting does not result in bleeding
+            maxHPDMG = 0 //Spitting does not result in bleeding
+            minEPDMG = 1 //At worst, repeated spitting will wear down body
+            maxEPDMG = 2 //At worst, repeated spitting will wear down body
+            minMPDMG = 43 //1.0x; Spitting is mentally draining
+            maxMPDMG = 86 //2.0x; Spitting is mentally draining
+                   
+            accuracy = 50
+                   
+        }/*Cloth Hammer Shorts*/ else if (name == "Shoddy Cloth Hammer Shorts") {
             
             bleedResist = Int(5 * 1)
             physicalResist = Int(5 * 0.5)
