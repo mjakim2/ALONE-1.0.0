@@ -1000,6 +1000,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard00")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard00")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market00")!
             }
         case 1:
             if(background == "Empty House"){
@@ -1016,6 +1018,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard01")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard01")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market01")!
             }
         case 2:
             if(background == "Empty House"){
@@ -1032,6 +1036,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard02")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard02")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market02")!
             }
         case 3:
             if(background == "Empty House"){
@@ -1048,6 +1054,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard03")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard03")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market03")!
             }
         case 4:
             if(background == "Empty House"){
@@ -1064,6 +1072,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard04")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard04")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market04")!
             }
         case 5:
             if(background == "Empty House"){
@@ -1080,6 +1090,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard05")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard05")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market05")!
             }
         case 6:
             if(background == "Empty House"){
@@ -1096,6 +1108,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard06")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard06")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market06")!
             }
         case 7:
             if(background == "Empty House"){
@@ -1112,6 +1126,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard07")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard07")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market07")!
             }
         case 8:
             if(background == "Empty House"){
@@ -1128,6 +1144,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard08")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard08")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market08")!
             }
         case 9:
             if(background == "Empty House"){
@@ -1144,6 +1162,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard09")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard09")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market09")!
             }
         case 10:
             if(background == "Empty House"){
@@ -1160,6 +1180,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard10")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard10")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market10")!
             }
         case 11:
             if(background == "Empty House"){
@@ -1176,6 +1198,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard11")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard11")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market11")!
             }
         case 12:
             if(background == "Empty House"){
@@ -1192,6 +1216,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard12")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard12")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market12")!
             }
         case 13:
             if(background == "Empty House"){
@@ -1208,6 +1234,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard13")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard13")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market13")!
             }
         case 14:
             if(background == "Empty House"){
@@ -1224,6 +1252,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard14")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard14")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market14")!
             }
         case 15:
             if(background == "Empty House"){
@@ -1240,6 +1270,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard15")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard15")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market15")!
             }
         case 16:
             if(background == "Empty House"){
@@ -1256,6 +1288,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard16")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard16")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market16")!
             }
         case 17:
             if(background == "Empty House"){
@@ -1272,6 +1306,8 @@ class BattleViewController: UIViewController {
                 return UIImage(named: "GreenGraveyard17")!
             } else if (background == "Barren Graveyard"){
                 return UIImage(named: "BarrenGraveyard17")!
+            } else if (background == "Market"){
+                return UIImage(named: "Market17")!
             }
         default:
             return UIImage(named: "EmptyHouseBackground00")!

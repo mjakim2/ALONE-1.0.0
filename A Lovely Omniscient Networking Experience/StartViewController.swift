@@ -99,6 +99,10 @@ class StartViewController: UIViewController {
             
         }
         
+        if(checkForQuest(n: "Visit the Market") < 0 && (time >= 8*60 && time < 60*16)){
+            setQuest(n: "Visit the Market")
+        }
+        
         //Adding on appropriate hunting quests.
         if(checkForQuest(n: "Day Hunting") < 0){
             setQuest(n: "Day Hunting")
@@ -124,11 +128,6 @@ class StartViewController: UIViewController {
                 setQuest(n: "Caranith at Dawn")
             }
             
-            //Caranith Stores
-            if(checkForQuest(n: "Caranith Market") < 0 && (time >= 8*60 && time < 60*16)){
-                setQuest(n: "Caranith Market")
-            }
-            
             //Travels
             if(checkForQuest(n: "Caranith to Cavesin") < 0){
                 setQuest(n: "Caranith to Cavesin")
@@ -152,11 +151,6 @@ class StartViewController: UIViewController {
                 setQuest(n: "Cavesin at Dark")
             } else if(checkForQuest(n: "Cavesin at Dawn") < 0 && (time >= 16*60 && time < 60*20)){
                 setQuest(n: "Cavesin at Dawn")
-            }
-            
-            //Cavesin Stores
-            if(checkForQuest(n: "Cavesin Market") < 0 && (time >= 8*60 && time < 60*16)){
-                setQuest(n: "Cavesin Market")
             }
             
             //Travels
@@ -273,6 +267,8 @@ class StartViewController: UIViewController {
             bg.image = UIImage(named: "GreenGraveyard00")
         } else if (worlds[worldNumber].quests[index].background == "Barren Graveyard") {
             bg.image = UIImage(named: "BarrenGraveyard00")
+        } else if (worlds[worldNumber].quests[index].background == "Market") {
+            bg.image = UIImage(named: "Market00")
         } else {
             bg.image = UIImage(named: "EmptyHouseBackground00")
         }

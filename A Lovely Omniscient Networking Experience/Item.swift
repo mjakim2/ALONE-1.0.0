@@ -135,6 +135,7 @@ class Item {
     var count: Int = 1
     var pockets: Array<Pocket> = []
     var preDigest: Int = -1
+    var minerals: Array<Mineral> = []
     
     /*SOON TO BE REDONE*/
     func setPockets(slot: String, item: Item) {
@@ -204,6 +205,8 @@ class Item {
     //Set the stats of foods and drinks.
     func setConsumable() {
         
+        //Vials are 4 drams, or 14.8 mL.
+        
         if (name == "Shoddy Slice of Parmesan Cheese") {
             
         } else if (name == "Shoddy Slice of Cheddar Cheese") {
@@ -218,6 +221,38 @@ class Item {
             
         } else if (name == "Shoddy Slice of Brie Cheese") {
             
+        } else if (name == "Shoddy Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 600
+            minerals.append(iron)
+        } else if (name == "Patchwork Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 750
+            minerals.append(iron)
+        } else if (name == "Standard Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 900
+            minerals.append(iron)
+        } else if (name == "Proper Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 1050
+            minerals.append(iron)
+        } else if (name == "Surplus Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 1200
+            minerals.append(iron)
+        } else if (name == "Premium Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 1350
+            minerals.append(iron)
+        } else if (name == "Specialty Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 1500
+            minerals.append(iron)
+        } else if (name == "Prized Vial of Blood") {
+            let iron: Mineral = Mineral(n: "Iron")
+            iron.amount = 1650
+            minerals.append(iron)
         } else if (name == "Shoddy Egg Yolk") {
             preDigest = 30
             saturation = 45

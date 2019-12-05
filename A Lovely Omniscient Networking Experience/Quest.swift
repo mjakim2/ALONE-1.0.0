@@ -20,7 +20,10 @@ class Quest {
     
     var background: String = ""
     var introText: String = ""
+    //The specific title of the location.
     var locationTitle: String = ""
+    //Ranks: Wilderness, Village, Hamlet, Town, Citadel, Fortress, etc.
+    var locationRank: String = ""
     var spoils: Array<Item> = []
     var ends: String = ""
     
@@ -53,6 +56,9 @@ class Quest {
         } else if (name == "Cavesin Graveyard") {
             introText = "Take a round around the graveyard."
             ends = ""
+        } else if (name == "Visit the Market") {
+            introText = "Check what's in stock! If you peer behind the stalls, you can see the finer goods in store."
+            ends = ""
         }
         
     }
@@ -72,6 +78,8 @@ class Quest {
             background =  "Green Graveyard"
         } else if (name == "Cavesin Graveyard" && biome == "Cordillera"){
             background =  "Dry Graveyard"
+        } else if (name == "Visit the Market"){
+            background =  "Market"
         } else if (name == "Day Hunting" && biome == "Tundra"){
             background =  "Tundra Fields"
         } else if (name == "Dusk Hunting" && biome == "Tundra"){
