@@ -10,7 +10,6 @@
 		0D0A9CC321D3116C00F1DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CC221D3116C00F1DD45 /* AppDelegate.swift */; };
 		0D0A9CC521D3116C00F1DD45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CC421D3116C00F1DD45 /* ViewController.swift */; };
 		0D0A9CC821D3116D00F1DD45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A9CC621D3116D00F1DD45 /* Main.storyboard */; };
-		0D0A9CCA21D3116D00F1DD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A9CC921D3116D00F1DD45 /* Assets.xcassets */; };
 		0D0A9CCD21D3116D00F1DD45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A9CCB21D3116D00F1DD45 /* LaunchScreen.storyboard */; };
 		0D0A9CD821D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CD721D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceTests.swift */; };
 		0D0A9CE321D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A9CE221D3116D00F1DD45 /* A_Lovely_Onmiscient_Networking_ExperienceUITests.swift */; };
@@ -25,6 +24,9 @@
 		0D21F76821F8BAF700E6DD4B /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21F76721F8BAF700E6DD4B /* Quest.swift */; };
 		0D4AE17621DE79460062612E /* EntityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AE17521DE79460062612E /* EntityClass.swift */; };
 		0D4AE17821DF0EC60062612E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AE17721DF0EC60062612E /* Item.swift */; };
+		0DA26912239EBCBB0045E75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA26911239EBCBB0045E75C /* Assets.xcassets */; };
+		0DA26915239EBEDE0045E75C /* ALONE_THEME.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0DA26914239EBEDE0045E75C /* ALONE_THEME.m4a */; };
+		0DA26917239ECEE40045E75C /* BATTLE_THEME.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0DA26916239ECEE40045E75C /* BATTLE_THEME.m4a */; };
 		0DB6372722C535DB0017DA08 /* Mineral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6372622C535DB0017DA08 /* Mineral.swift */; };
 		0DB6372D22D612C90017DA08 /* Pocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6372C22D612C90017DA08 /* Pocket.swift */; };
 		0DB6372F22D776B60017DA08 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6372E22D776B60017DA08 /* Skill.swift */; };
@@ -59,7 +61,6 @@
 		0D0A9CC221D3116C00F1DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D0A9CC421D3116C00F1DD45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D0A9CC721D3116D00F1DD45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0D0A9CC921D3116D00F1DD45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D0A9CCC21D3116D00F1DD45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D0A9CCE21D3116D00F1DD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0A9CD321D3116D00F1DD45 /* A Lovely Onmiscient Networking ExperienceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Lovely Onmiscient Networking ExperienceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +80,9 @@
 		0D21F76721F8BAF700E6DD4B /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		0D4AE17521DE79460062612E /* EntityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityClass.swift; sourceTree = "<group>"; };
 		0D4AE17721DF0EC60062612E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0DA26911239EBCBB0045E75C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DA26914239EBEDE0045E75C /* ALONE_THEME.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = ALONE_THEME.m4a; path = ../../../Downloads/ALONE_THEME.m4a; sourceTree = "<group>"; };
+		0DA26916239ECEE40045E75C /* BATTLE_THEME.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = BATTLE_THEME.m4a; path = ../../../Downloads/BATTLE_THEME.m4a; sourceTree = "<group>"; };
 		0DB6372622C535DB0017DA08 /* Mineral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mineral.swift; sourceTree = "<group>"; };
 		0DB6372C22D612C90017DA08 /* Pocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket.swift; sourceTree = "<group>"; };
 		0DB6372E22D776B60017DA08 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -163,9 +167,11 @@
 				0DC1C190232032D200BC5934 /* Shop.swift */,
 				0D1F2F6821F3ACFF00F4D4C6 /* MenuViewController.swift */,
 				0D0A9CF021D3152200F1DD45 /* GenerationViewController.swift */,
-				0D0A9CC921D3116D00F1DD45 /* Assets.xcassets */,
 				0D0A9CCB21D3116D00F1DD45 /* LaunchScreen.storyboard */,
 				0D0A9CCE21D3116D00F1DD45 /* Info.plist */,
+				0DA26911239EBCBB0045E75C /* Assets.xcassets */,
+				0DA26916239ECEE40045E75C /* BATTLE_THEME.m4a */,
+				0DA26914239EBEDE0045E75C /* ALONE_THEME.m4a */,
 			);
 			path = "A Lovely Omniscient Networking Experience";
 			sourceTree = "<group>";
@@ -295,9 +301,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DA26915239EBEDE0045E75C /* ALONE_THEME.m4a in Resources */,
 				0D0A9CCD21D3116D00F1DD45 /* LaunchScreen.storyboard in Resources */,
-				0D0A9CCA21D3116D00F1DD45 /* Assets.xcassets in Resources */,
+				0DA26912239EBCBB0045E75C /* Assets.xcassets in Resources */,
 				0D0A9CC821D3116D00F1DD45 /* Main.storyboard in Resources */,
+				0DA26917239ECEE40045E75C /* BATTLE_THEME.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

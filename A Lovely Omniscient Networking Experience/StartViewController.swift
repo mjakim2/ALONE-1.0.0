@@ -34,9 +34,12 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Playing the proper track.
+        worlds[worldNumber].playTrack(name: "ALONE_THEME")
+        //Setting up the quest list.
         questList()
         
-        while (worlds[worldNumber].quests.count < 3) {
+        while (worlds[worldNumber].quests.count < 4) {
             let blank: Quest = Quest(n: "");
             worlds[worldNumber].quests.append(blank)
         }
@@ -103,7 +106,18 @@ class StartViewController: UIViewController {
             setQuest(n: "Visit the Market")
         }
         
-        //Adding on appropriate hunting quests.
+        //Code for clearing inaccurate hunting quests.
+        if(checkForQuest(n: "Day Hunting") >= 0 && (time < 60*8 || time >= 60*16)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Day Hunting"))
+        } else if(checkForQuest(n: "Dusk Hunting") >= 0 && (time < 60*16 || time >= 60*20)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dusk Hunting"))
+        } else if(checkForQuest(n: "Dark Hunting") >= 0 && (time < 60*20 && time >= 60*4)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dark Hunting"))
+        } else if(checkForQuest(n: "Dawn Hunting") >= 0 && (time < 60*4 || time >= 60*8)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dawn Hunting"))
+        }
+        
+        //Adding on all hunting quests.
         if(checkForQuest(n: "Day Hunting") < 0){
             setQuest(n: "Day Hunting")
         } else if(checkForQuest(n: "Dusk Hunting") < 0){
@@ -112,6 +126,17 @@ class StartViewController: UIViewController {
             setQuest(n: "Dark Hunting")
         } else if(checkForQuest(n: "Dawn Hunting") < 0){
             setQuest(n: "Dawn Hunting")
+        }
+        
+        //Code for clearing inaccurate hunting quests.
+        if(checkForQuest(n: "Day Hunting") >= 0 && (time < 60*8 || time >= 60*16)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Day Hunting"))
+        } else if(checkForQuest(n: "Dusk Hunting") >= 0 && (time < 60*16 || time >= 60*20)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dusk Hunting"))
+        } else if(checkForQuest(n: "Dark Hunting") >= 0 && (time < 60*20 && time >= 60*4)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dark Hunting"))
+        } else if(checkForQuest(n: "Dawn Hunting") >= 0 && (time < 60*4 || time >= 60*8)){
+            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dawn Hunting"))
         }
         
         //Adding on Caranith quests if in Caranith.
@@ -160,41 +185,30 @@ class StartViewController: UIViewController {
             
         }
         
-        //Code for clearing inaccurate hunting quests.
-        if(checkForQuest(n: "Day Hunting") > 0 && (time < 60*8 || time >= 60*16)){
-            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Day Hunting"))
-        } else if(checkForQuest(n: "Dusk Hunting") > 0 && (time < 60*16 || time >= 60*20)){
-            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dusk Hunting"))
-        } else if(checkForQuest(n: "Dark Hunting") > 0 && (time < 60*20 && time >= 60*4)){
-            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dark Hunting"))
-        } else if(checkForQuest(n: "Dawn Hunting") > 0 && (time < 60*4 || time >= 60*8)){
-            worlds[worldNumber].quests.remove(at: checkForQuest(n: "Dawn Hunting"))
-        }
-        
         //Code for clearing quests based around Caranith.
         if(worlds[worldNumber].currentLocation == "Caranith"){
         
             //Clearing all inaccurate Caranith quests.
-            if(checkForQuest(n: "Caranith at Day") > 0 && (time < 60*8 || time >= 60*16)){
+            if(checkForQuest(n: "Caranith at Day") >= 0 && (time < 60*8 || time >= 60*16)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Day"))
-            } else if(checkForQuest(n: "Caranith at Dusk") > 0 && (time < 60*16 || time >= 60*20)){
+            } else if(checkForQuest(n: "Caranith at Dusk") >= 0 && (time < 60*16 || time >= 60*20)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Dusk"))
-            } else if(checkForQuest(n: "Caranith at Dark") > 0 && (time < 60*20 && time >= 60*4)){
+            } else if(checkForQuest(n: "Caranith at Dark") >= 0 && (time < 60*20 && time >= 60*4)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Dark"))
-            } else if(checkForQuest(n: "Caranith at Dawn") > 0 && (time < 60*4 || time >= 60*8)){
+            } else if(checkForQuest(n: "Caranith at Dawn") >= 0 && (time < 60*4 || time >= 60*8)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Dawn"))
             }
         
         } else {
             
             //If outside of Caranith, clear all Caranith-based quests.
-            if(checkForQuest(n: "Caranith at Day") > 0){
+            if(checkForQuest(n: "Caranith at Day") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Day"))
-            } else if(checkForQuest(n: "Caranith at Dusk") > 0){
+            } else if(checkForQuest(n: "Caranith at Dusk") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Dusk"))
-            } else if(checkForQuest(n: "Caranith at Dark") > 0){
+            } else if(checkForQuest(n: "Caranith at Dark") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Dark"))
-            } else if(checkForQuest(n: "Caranith at Dawn") > 0){
+            } else if(checkForQuest(n: "Caranith at Dawn") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Caranith at Dawn"))
             }
             
@@ -204,28 +218,28 @@ class StartViewController: UIViewController {
         if(worlds[worldNumber].currentLocation == "Cavesin"){
             
             //Clearing inaccurate Cavesin quests.
-            if(checkForQuest(n: "Cavesin at Day") > 0 && (time < 60*8 || time >= 60*16)){
+            if(checkForQuest(n: "Cavesin at Day") >= 0 && (time < 60*8 || time >= 60*16)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Day"))
-            } else if(checkForQuest(n: "Cavesin at Dusk") > 0 && (time < 60*16 || time >= 60*20)){
+            } else if(checkForQuest(n: "Cavesin at Dusk") >= 0 && (time < 60*16 || time >= 60*20)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dusk"))
-            } else if(checkForQuest(n: "Cavesin at Dark") > 0 && (time < 60*20 && time >= 60*4)){
+            } else if(checkForQuest(n: "Cavesin at Dark") >= 0 && (time < 60*20 && time >= 60*4)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dark"))
-            } else if(checkForQuest(n: "Cavesin at Dawn") > 0 && (time < 60*4 || time >= 60*8)){
+            } else if(checkForQuest(n: "Cavesin at Dawn") >= 0 && (time < 60*4 || time >= 60*8)){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dawn"))
             }
             
         } else {
             
             //If outside of Cavesin, clear all Cavesin-based quests.
-            if(checkForQuest(n: "Cavesin at Day") > 0){
+            if(checkForQuest(n: "Cavesin at Day") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Day"))
-            } else if(checkForQuest(n: "Cavesin at Dusk") > 0){
+            } else if(checkForQuest(n: "Cavesin at Dusk") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dusk"))
-            } else if(checkForQuest(n: "Cavesin at Dark") > 0){
+            } else if(checkForQuest(n: "Cavesin at Dark") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dark"))
-            } else if(checkForQuest(n: "Cavesin at Dawn") > 0){
+            } else if(checkForQuest(n: "Cavesin at Dawn") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin at Dawn"))
-            } else if(checkForQuest(n: "Cavesin Graveyard") > 0){
+            } else if(checkForQuest(n: "Cavesin Graveyard") >= 0){
                 worlds[worldNumber].quests.remove(at: checkForQuest(n: "Cavesin Graveyard"))
             }
             

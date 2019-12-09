@@ -54,6 +54,9 @@ class BattleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Playing the proper track.
+        worlds[worldNumber].playTrack(name: "BATTLE_THEME")
+        
         //Clear any images from previous battles.
         worlds[worldNumber].quests[questNumber].enemies.removeAll()
         enemyImages.removeAll()
@@ -723,16 +726,40 @@ class BattleViewController: UIViewController {
         
     }
     
-    //Sets the color of the sky depending on the time. Useful for determining the function shouldQuit.
+    ///Helps break down the logic for changing the sky color.
+    func skyHelper(start: Int, end: Int, startRed: Float, endRed: Float, startGreen: Float, endGreen: Float,
+                   startBlue: Float, endBlue: Float, time: Int) {
+        let blend: Float = Float(end - time) / Float(end - start)
+        let diff: Float = 1.0 - blend
+        let red: CGFloat = CGFloat(startRed * blend + endRed * diff)
+        let green: CGFloat = CGFloat(startGreen * blend + endGreen * diff)
+        let blue: CGFloat = CGFloat(startBlue * blend + endBlue * diff)
+        let sky: UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        skyImage.backgroundColor = sky
+    }
+    
+    ///Sets the color of the sky depending on the time. Useful for determining the function shouldQuit.
     func setSky(time: Int){
-        if(time >= 60*8 && time < 60*16){
-            skyImage.image = UIImage(named: "Day Sky")
-        } else if(time >= 60*16 && time < 60*20){
-            skyImage.image = UIImage(named: "Dusk Sky")
-        } else if(time >= 60*20 || time < 60*4){
-            skyImage.image = UIImage(named: "Dark Sky")
-        } else if(time >= 60*4 && time < 60*8){
-            skyImage.image = UIImage(named: "Dawn Sky")
+        let day: UIColor = UIColor(red: 0.9, green: 1.0, blue: 1.0, alpha: 1.0);
+        let dusk: UIColor = UIColor(red: 0.9, green: 0.3, blue: 0.1, alpha: 1);
+        let dark: UIColor = UIColor(red: 0.0, green: 0.0, blue: 0.25, alpha: 1);
+        let dawn: UIColor = UIColor(red: 0.6, green: 0.5, blue: 0.4, alpha: 1);
+        if /*Broad daylight*/ (time >= 60*9 && time < 60*15) {
+            skyImage.backgroundColor = day
+        } /*Turning from day to dusk*/ else if (time >= 60*15 && time < 60*17) {
+            skyHelper(start: 60*15, end: 60*17, startRed: 0.9, endRed: 0.9, startGreen: 1.0, endGreen: 0.3, startBlue: 1.0, endBlue: 0.1, time: time)
+        } /*The evening*/ else if (time >= 60*17 && time < 60*19) {
+            skyImage.backgroundColor = dusk
+        } /*Turning from dusk to dark*/ else if (time >= 60*19 && time < 60*21) {
+            skyHelper(start: 60*19, end: 60*21, startRed: 0.9, endRed: 0.0, startGreen: 0.3, endGreen: 0.0, startBlue: 0.1, endBlue: 0.25, time: time)
+        } /*Black as pitch*/ else if(time >= 60*21 || time < 60*3) {
+            skyImage.backgroundColor = dark
+        } /*From dark to dawn*/ else if (time >= 60*3 && time < 60*5) {
+            skyHelper(start: 60*3, end: 60*5, startRed: 0.0, endRed: 0.6, startGreen: 0.0, endGreen: 0.5, startBlue: 0.25, endBlue: 0.4, time: time)
+        } /*Dawn's light...*/ else if (time >= 60*5 && time < 60*7) {
+            skyImage.backgroundColor = dawn
+        } /*From dark to dawn*/ else if (time >= 60*7 && time < 60*9) {
+            skyHelper(start: 60*7, end: 60*9, startRed: 0.6, endRed: 0.9, startGreen: 0.5, endGreen: 1.0, startBlue: 0.4, endBlue: 1.0, time: time)
         }
     }
     

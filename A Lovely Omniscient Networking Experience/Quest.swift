@@ -26,6 +26,7 @@ class Quest {
     var locationRank: String = ""
     var spoils: Array<Item> = []
     var ends: String = ""
+    var song: String = "BATTLE_THEME"
     
     init(n: String){
         
